@@ -1,0 +1,7873 @@
+<!DOCTYPE html>
+<!-- saved from url=(0072)https://onlinecourses.nptel.ac.in/noc20_cs58/unit?unit=45&assessment=159 -->
+<html lang="en_US" class=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script async="" src="./Week5_Quiz_files/analytics.js"></script><script src="./Week5_Quiz_files/cb=gapi.loaded_0" async=""></script><script type="text/jscript" src="./Week5_Quiz_files/mobile_redirect.js" charset="utf-8"></script>
+    <!--<base href="https://onlinecourses.nptel.ac.in/noc20_cs58/">--><base href=".">
+    
+    <link rel="icon" href="https://storage.googleapis.com/swayam2-node/assets/img/favicon.ico">
+    
+    
+  <title>
+    Programming in Java -
+    
+  - Unit 7 - Week 5 :
+
+  </title>
+
+    <!-- jQuery should be imported first -->
+    <script src="./Week5_Quiz_files/jquery.min.js"></script>
+    <script src="./Week5_Quiz_files/registry.js"></script>
+
+
+    <!-- The following translated strings are used in activity-generic.js and should be
+    declared before that file is imported. -->
+    <script>
+      // inline translations
+      var trans = {};
+
+      
+      trans.CHECK_ANSWER_TEXT =
+          " Check Answer ";
+
+      
+      trans.CHECK_ANSWERS_TEXT =
+          " Check Answers ";
+
+      
+      trans.SHOW_ANSWER_TEXT =
+          " Skip and Show Answer ";
+
+      
+      trans.SAVE_ANSWERS_TEXT =
+          " Save Answers ";
+
+      
+      trans.SAVE_DRAFT_TEXT =
+          " Save Draft ";
+
+      
+      trans.SUBMIT_ANSWERS_TEXT =
+          " Submit Answers ";
+
+      
+      trans.SUBMIT_ASSIGNMENT_TEXT =
+          " Submit Assignment ";
+
+      
+      trans.SUBMIT_REVIEW_TEXT =
+          " Submit Review ";
+
+      
+      trans.SELECT_ANSWER_PROMPT =
+          " Please click one of the buttons for your answer. ";
+
+      
+      trans.ALL_CORRECT_TEXT =
+          " All your answers are correct! ";
+
+      
+      trans.NUM_CORRECT_TEXT =
+          " Number of questions you answered correctly ";
+
+      
+      trans.YOUR_SCORE_TEXT =
+          " You received a score on this assessment of ";
+
+      
+      trans.LESSONS_TO_REVIEW_TEXT =
+          " Here are lessons you could review to improve your score ";
+
+      
+      trans.PERFECT_SCORE_SAVE_TEXT =
+          " Congratulations! Press the \'Submit Answers\' button to submit your grade. ";
+
+      
+      trans.GENERIC_SAVE_TEXT =
+          " Press the \'Submit Answers\' button below to save your scores. You can also edit your answers above before clicking \'Submit Answers\'. ";
+
+      
+      trans.SUBMIT_ASSIGNMENT_CONFIRMATION =
+          " Are you sure you want to submit this assignment? ";
+
+      
+      trans.SUBMIT_REVIEW_CONFIRMATION =
+          " Are you sure you want to submit this review? ";
+
+      
+      trans.CONFIRMATION_EXPLANATION =
+          " You cannot edit or delete it after you have done so. ";
+    </script>
+
+    
+    
+  <meta name="viewport" content="width=device-width, user-scalable=no">
+  <link rel="icon" href="https://storage.googleapis.com/swayam2-node/assets/img/favicon.ico">
+  <link href="./Week5_Quiz_files/main.css" rel="stylesheet" type="text/css">
+  <link href="./Week5_Quiz_files/nptel(1).css" rel="stylesheet" type="text/css">
+  <link href="./Week5_Quiz_files/chosen.min.css" rel="stylesheet" type="text/css">
+  <link href="./Week5_Quiz_files/minimal.mobile.css" rel="stylesheet" type="text/css" media="only screen and (max-device-width: 1024px)">
+
+  <!-- jQuery should be imported first -->
+  <script src="./Week5_Quiz_files/jquery.min(1).js"></script>
+  <script src="./Week5_Quiz_files/chosen.jquery.min.js"></script>
+  <script src="./Week5_Quiz_files/butterbar.js"></script>
+  <link rel="stylesheet" type="text/css" href="./Week5_Quiz_files/butterbar.css" media="screen">
+  <script src="./Week5_Quiz_files/main.js"></script>
+
+  <!--<script src="//www.google.com/jsapi" type="text/javascript"></script>-->
+  <script src="./Week5_Quiz_files/loader.js"></script>
+
+  <script type="text/javascript">
+    function addScript(src, callback) {
+      var r = false;
+      var existed = true;
+      var element = document.getElementById(src);
+      if (!element) {
+        existed = false;
+        element = document.createElement('script');
+        element.src = src;
+        element.type = 'text/javascript';
+        element.setAttribute('id', src);
+      }
+      if (callback != null) {
+        element.onload = element.onreadystatechagne = function() {
+          if (!r && (!this.readyState || this.readyState == 'complete')) {
+            r = true;
+            callback();
+          }
+        }
+      }
+      if (!existed) document.body.appendChild(element);
+    }
+    function getStudentProgress() {
+      
+      ajax_server.get_progress();
+      
+    }
+    function prettyfyCode() {
+      prettyPrint();
+    }
+    function showButterBar() {
+      
+      var regConfirmationMsg = "Thank you for registering for the course. Click the Announcements tab for important information.";
+      if(window.location.hash == '#registration_confirmation') {
+        cbShowMsg(regConfirmationMsg);
+        setTimeout(function() {cbHideMsg();}, 20000);
+      }
+      
+      var regClosedMsg = "Registrations for this course are not open.";
+      if(window.location.hash == '#registration_closed') {
+        cbShowMsg(regClosedMsg);
+        setTimeout(function() {cbHideMsg();}, 20000);
+      }
+    }
+    function loadOtherJs(callback) {
+      var c = getStudentProgress;
+      if (null != callback) {
+        c = function() {
+           callback();
+           getStudentProgress();
+        }
+      }
+      addScript('https://storage.googleapis.com/swayam2-node/assets/lib/google-code-prettify/prettify.js', prettyfyCode);
+      addScript('https://storage.googleapis.com/swayam2-node/modules/nptel/assets/js/activity-generic-1.3.js', null);
+      addScript('https://storage.googleapis.com/swayam2-node/modules/nptel/assets/js/main.js', c);
+    }
+    function downloadJsAtLoad() { loadOtherJs(null); }
+
+    google.charts.load('current', {packages: ['corechart']});
+    google.charts.setOnLoadCallback(downloadJsAtLoad);
+  </script><script type="text/javascript" charset="UTF-8" src="./Week5_Quiz_files/loader(1).js"></script>
+ 
+
+  <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "Course",
+      "@id": "https://onlinecourses.nptel.ac.in/noc20_cs58/",
+      "name": "Programming in Java",
+      "description": "",
+      "provider": {
+        "@type":"Organization",
+        "name":"National Programme on Technology Enhanced Learning",
+        "sameAs":"http://nptel.iitm.ac.in"
+      },
+      "grantsCredential": "False",
+      "isAccessibleForFree" : "",
+
+      "hasCourseInstance" : [
+      {
+        "inLanguage" : "en",
+        "audioLanguage" : ["en"],
+        "startDate" : "2020-09-13T18:30:00.000000Z"
+        }
+      ],
+      
+        "image" : "/modules/nptel/assets/img/nptel-logo.png"
+      
+    }
+  </script>
+
+    <script src="./Week5_Quiz_files/in_place_lesson_editor.js"></script>
+    <link rel="stylesheet" href="./Week5_Quiz_files/in_place_lesson_editor.css">
+    <link rel="stylesheet" href="./Week5_Quiz_files/material-design-iconic-font.min.css">
+  
+
+    
+
+    
+
+    <script>
+      var eventXsrfToken = '1603293182/tPizZ2u0aaXPKWHNo7Ejmw==';
+      
+        var gcbCanRecordStudentEvents = true;
+      
+
+      
+        var transientStudent = false;
+      
+    </script>
+
+    
+      <script type="text/javascript" src="./Week5_Quiz_files/plusone.js" gapi_processed="true"></script>
+    
+
+    <script>
+      function gcb_edit_hook_point(key) {
+        window.location=('dashboard?action=edit_html_hook&key=' +
+            encodeURIComponent(key));
+      }
+      $(function() {
+        // TODO(nretallack): This duplicates code in
+        // modules/dashboard/resources/js/view.js.
+        function parseJson(s) {
+          var xssiPrefix = ")]}'";
+          return JSON.parse(s.replace(xssiPrefix, ''));
+        }
+
+        $("#locale-select").change(function() {
+          var localeSelect = $("#locale-select");
+          var request = JSON.stringify({
+            xsrf_token: localeSelect.data("xsrf-token"),
+            payload: {
+              selected: localeSelect.val()
+            }
+          });
+          $.ajax({
+            url: "rest/locale",
+            type: "POST",
+            data: {request: request},
+            dataType: "text",
+            success: function(data) {
+              data = parseJson(data);
+              if (data.status == 200) {
+                window.location.reload();
+              }
+            }
+          });
+        });
+      });
+    </script>
+
+    
+      
+      
+    
+
+    <link id="load-css-0" rel="stylesheet" type="text/css" href="./Week5_Quiz_files/tooltip.css"><link id="load-css-1" rel="stylesheet" type="text/css" href="./Week5_Quiz_files/util.css"><script type="text/javascript" charset="UTF-8" src="./Week5_Quiz_files/jsapi_compiled_default_module.js"></script><script type="text/javascript" charset="UTF-8" src="./Week5_Quiz_files/jsapi_compiled_graphics_module.js"></script><script type="text/javascript" charset="UTF-8" src="./Week5_Quiz_files/jsapi_compiled_ui_module.js"></script><script type="text/javascript" charset="UTF-8" src="./Week5_Quiz_files/jsapi_compiled_corechart_module.js"></script></head><body data-gcb-page-locale="en_US" style=""><div class="gcb-html-hook" id="base-before-head-tag-ends"><!-- base.before_head_tag_ends --></div>
+  
+
+  
+    <div class="invisiblePopupDiv" id="termsDiv">
+       <div class="gcb-pull-right">
+       <a class="closeXButton" onclick="hidePopupDiv(&quot;termsDiv&quot;); return false;">X</a>
+       </div>
+       <iframe src="./Week5_Quiz_files/terms.html" class="popupIframe"></iframe>
+      </div>
+    <div class="invisiblePopupDiv" id="honorDiv">
+       <div class="gcb-pull-right">
+       <a class="closeXButton" onclick="hidePopupDiv(&quot;honorDiv&quot;); return false;">X</a>
+       </div>
+       <iframe src="./Week5_Quiz_files/honor_code.html" class="popupIframe"></iframe>
+      </div>
+    <div class="invisiblePopupDiv" id="faqDiv">
+       <div class="gcb-pull-right">
+       <a class="closeXButton" onclick="hidePopupDiv(&quot;faqDiv&quot;); return false;">X</a>
+       </div>
+       <iframe src="./Week5_Quiz_files/faq.html" class="popupIframe"></iframe>
+    </div>
+
+    <div class="gcb-html-hook" id="base-after-body-tag-begins"><!-- base.after_body_tag_begins --></div>
+
+    
+      <script>
+        // Course-Builder specific setup for Google Tag Manager.  Iff
+        // Tag Managers is enabled, the values in the dataLayer list of
+        // dicts is made available to Tag Manager macros.
+        dataLayer = [{
+          'course_title': 'Programming in Java',
+          'event': 'default',  // Explicit value meaning not-really-set.
+          }];
+
+        function gcbSetPageInfo(dict) {
+          dataLayer.push(dict);
+        }
+
+        // Invoke page-specific block so that any calls to gcbReportPageInfo()
+        // are made before we hit the Tag Manager call, below.
+        
+  if ('gcbSetPageInfo' in window) {
+    gcbSetPageInfo({
+      'page_type': 'assessment',
+      'unit_id': '45',
+      
+      
+        'assessment_id': '159',
+      
+    });
+  }
+
+      </script>
+
+      
+    
+
+    <!-- ButterBar -->
+    <div class="gcb-butterbar-container fixed" style="position: fixed; top: 10px;">
+      <div id="gcb-butterbar-top" class="gcb-butterbar" style="margin: 0px;" aria-live="polite">
+        <p id="gcb-butterbar-message">Assessment submitted.</p>
+        <a id="gcb-butterbar-close">X</a>
+      </div>
+    </div>
+
+    
+        <!-- header starts -->
+        <!-- Swayam CSS -->
+<link href="./Week5_Quiz_files/bootstrap.min.css" rel="stylesheet">
+<!--<link href="https://storage.googleapis.com/swayam2-node/assets/css/swayam_css/main.css" rel="stylesheet">-->
+<link rel="icon" href="https://storage.googleapis.com/swayam2-node/assets/img/favicon.ico">
+<link rel="stylesheet" href="./Week5_Quiz_files/font-awesome.min.css">
+<!-- Swayam JS -->
+<script src="./Week5_Quiz_files/jquery.js"></script>
+<script src="./Week5_Quiz_files/bootstrap.min.js"></script>
+
+<style>
+    /* Overriding from nptel.css */
+    #gcb-nav-x {
+        background-color: #993333;
+    }
+
+    #gcb-nav-x > .gcb-aux > a,
+    #gcb-nav-x > .gcb-aux > a:visited,
+    #gcb-nav-x > .gcb-aux {
+        color: #ffffff;
+    }
+
+    .dropdown>a:focus, .dropdown>a:hover, .dropdown>a:active {
+    text-decoration: none;
+    }
+
+    .top-bar {
+        padding: 5px 0;
+        color: #333333;
+        font-size: 10px;
+        font-weight: 500
+    }
+
+    .top-navigation {
+        text-align: right
+    }
+
+    @media (max-width: 767px) {
+        .top-navigation {
+            text-align: center
+        }
+    }
+
+    @media (max-width: 767px) {
+        .top-left {
+            text-align: center
+        }
+    }
+
+    .top-navigation {
+      font-size: 14px;
+      margin-top: 15px;
+    }
+
+    .top-navigation a {
+        color: #666666;
+        padding: 0px 4px 0px 4px;
+        font-size: 14px;
+        font-weight: 300
+    }
+
+    .top-navigation a:hover {
+      color: #0099cc;
+      text-decoration: none;
+    }
+
+    .navbar {
+        margin: 0px;
+        background: #FFFFFF;
+        padding: 0px;
+        border: none
+    }
+
+    .navbar-brand{
+        padding: 0;
+        float: none;
+    }
+
+    .dropdown-menu>li>a {
+        padding: 5px 15px 5px 15px
+    }
+
+    .dropdown-menu>li:hover>a,
+    .dropdown-menu>li>a:focus,
+    .dropdown-menu>li>a:active {
+        color: #FFFFFF;
+        background:#0099cc;
+    }
+
+    .dropdown-menu li:first-child{
+        border-top: 4px solid #ff8811;
+        padding-top:10px;
+    }
+
+    .dropdown-menu li:last-child{
+        padding-bottom:10px;
+    }
+
+    .dropdown-menu li:hover .normalimg,
+    .dropdown-menu li a:hover .normalimg,
+    .dropdown-menu li a:focus .normalimg{
+        display:none;
+    }
+
+    .dropdown-menu li:hover .selectedimg,
+    .dropdown-menu li a:hover .selectedimg,
+    .dropdown-menu li a:focus .selectedimg{
+        display:inline-block;
+    }
+
+    .selectedimg{
+        display:none;
+    }
+
+    .dropdown-menu {
+        background: #ffffff;
+        padding: 0px;
+        margin-right: 5px;
+        margin-top: 20px;
+        text-align: left;
+        right: 0;
+        left: auto;
+    }
+</style>
+
+
+<header role="banner">
+    <!--Top Bar [START]-->
+    <div class="top-bar">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-3 col-xs-12 top-left">
+              <a class="navbar-brand" href="https://swayam.gov.in/">
+                  <img src="./Week5_Quiz_files/swayam_logo.png" alt="swayam-logo">
+              </a> &nbsp; &nbsp; &nbsp;
+
+              
+              <a href="https://swayam.gov.in/nc_details/NPTEL">
+                  <img src="./Week5_Quiz_files/NPTEL_logo_128.png" alt="nc-logo" width="48px" height="48px">
+              </a>
+              
+          </div>
+          <div class="col-sm-9 col-xs-12">
+            <div class="top-navigation">
+                <!--<a href="/about">About Swayam</a> |-->
+                <!--<a href="/explorer">All Courses</a> |-->
+                <!--<a href="/nc_details/">National Coordinators</a> |-->
+                <!--<a href="https://nptel.ac.in/LocalChapter/">Local Chapters</a>-->
+                <div class="dropdown">
+                     
+                        <a href="https://onlinecourses.nptel.ac.in/noc20_cs58/#" class="dropdown-toggle" data-toggle="dropdown">adityaroy66666@gmail.com <i class="fa fa-angle-down"></i></a>
+                        <ul class="dropdown-menu">
+                            
+
+                            
+
+                            
+
+                            
+
+                            
+
+                            
+                            <li>
+                                <a href="https://onlinecourses.nptel.ac.in/profile">
+                                    <img src="./Week5_Quiz_files/icon_my_profile_normal.png" class="normalimg">
+                                    <img src="./Week5_Quiz_files/icon_my_profile_selected.png" class="selectedimg">
+                                    MY PROFILE
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://swayam.gov.in/mycourses">
+                                    <img src="./Week5_Quiz_files/icon_my_courses_normal.png" class="normalimg">
+                                    <img src="./Week5_Quiz_files/icon_my_courses_selected.png" class="selectedimg">
+                                    MY COURSES
+                                </a>
+                            </li>
+                            
+
+                            
+                                <li class="divider"></li>
+                            
+
+                            <li>
+                                <a href="https://login.microsoftonline.com/te/swayamopenid.onmicrosoft.com/B2C_1_swayam2/oauth2/v2.0/logout?post_logout_redirect_uri=https://onlinecourses.nptel.ac.in/wso_logout">
+                                    <img src="./Week5_Quiz_files/icon_sign_out_normal.png" class="normalimg">
+                                    <img src="./Week5_Quiz_files/icon_sign_out_selected.png" class="selectedimg">
+                                    SIGN-OUT
+                                </a>
+                            </li>
+                        </ul>
+                      
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--Top Bar [END]-->
+</header>
+
+        <!-- header ends -->
+    
+
+    
+  <!-- nav bar -->
+  <div class="gcb-nav gcb-complex" id="gcb-nav-x">
+    <div class="gcb-aux">
+      <a class="gcb-nav-course-title" href="https://swayam.gov.in/explorer?ncCode=NPTEL">NPTEL</a>
+      <span class="gcb-nav-course-title">»</span>
+      <a class="gcb-nav-course-title" href="https://onlinecourses.nptel.ac.in/noc20_cs58/course">Programming in Java</a>
+      <div class="gcb-pull-right"><ul class="clearfix">
+
+        <!-- left-aligned links in order -->
+        <div class="gcb-html-hook" id="base-after-navbar-begins"><!-- base.after_navbar_begins --></div>
+        <li>
+          
+          <a href="https://onlinecourses.nptel.ac.in/noc20_cs58/announcements">Announcements</a>
+        </li>
+        <li class="active">
+          
+          <a href="https://onlinecourses.nptel.ac.in/noc20_cs58/preview">About the Course</a>
+        </li>
+        
+          <li>
+            
+            <a href="https://onlinecourses.nptel.ac.in/noc20_cs58/forum">Ask a Question</a>
+          </li>
+        
+        
+          <li>
+            
+            <a href="https://onlinecourses.nptel.ac.in/noc20_cs58/student/home">Progress</a>
+          </li>
+         
+        
+              <li>
+                
+                <a href="https://onlinecourses.nptel.ac.in/noc20_cs58/student/mentor">Mentor</a>
+              </li>
+              
+        
+        
+        <!---->
+
+        <!-- right-aligned links are in order -->
+       <!-- -->
+        
+          
+            <!-- <li class="gcb-pull-right">
+              
+              <a href="/">My Courses</a>
+            </li> -->
+          
+        
+        <div class="gcb-html-hook" id="base-before-navbar-ends"><!-- base.before_navbar_ends --></div>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+    <!-- top section -->
+
+   <div id="gcb-main-body" class="clearfix">
+    <div class="is-wrapper">
+      <div class="gcb-aux">
+        
+
+        <div class="gcb-html-hook" id="base-after-top-content-ends"><!-- base.after_top_content_ends --></div>
+
+        <!-- main section -->
+        
+
+<script>
+  var questionData = {};
+  questionData.scored = true;
+</script>
+
+
+<div id="gcb-main">
+  <div id="gcb-left-nav-toggle">
+    <a href="https://onlinecourses.nptel.ac.in/noc20_cs58/" class="gcb-button">
+      <span class="show">
+        
+        Show Syllabus
+      </span>
+      <span class="hide">
+        
+        Hide Syllabus
+      </span>
+    </a>
+  </div>
+  <script>
+    $('#gcb-left-nav-toggle a').click(function(){
+        if ($(this).hasClass('show')) {
+            $(this).removeClass('show');
+            $('#gcb-nav-y').hide();
+            $('.gcb-unit-header').show('fast');
+            $('#gcb-nav-y + .gcb-article').show('fast');
+        } else {
+            $(this).addClass('show');
+            $('#gcb-nav-y').show('fast');
+            $('.gcb-unit-header').hide();
+            $('#gcb-nav-y + .gcb-article').hide();
+        }
+        return false;
+    });
+    function getStudentView(){
+      var viewAsUser = $('#view_as_user').val();
+      var url = new URL("https://onlinecourses.nptel.ac.in/noc20_cs58/unit?unit=45&assessment=159");
+      url.searchParams.set('view_as_user', viewAsUser);
+      window.location.href = url.toString();
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+      if('' && 'True'){
+        $('#checkAnswerButton, #submitbutton').prop('disabled', true);
+      }
+    }, false);
+  </script>
+
+  <ul id="gcb-breadcrumb" class="gcb-breadcrumb">
+    
+    <li><a href="https://onlinecourses.nptel.ac.in/noc20_cs58/course">Course</a></li>
+    <li><a href="https://onlinecourses.nptel.ac.in/noc20_cs58/unit?unit=45">
+      Unit 7</a></li>
+    
+  </ul>
+
+  <div id="gcb-unit-header">
+    <h1 class="gcb-unit-header">
+      Unit 7 - Week 5 :
+      
+    </h1>
+  </div>
+
+  
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="gcb-nav" id="gcb-nav-left" role="navigation">
+
+  
+
+  <div class="gcb-aside">
+  <h2>Course outline</h2>
+    
+      
+        
+          <div class="unit_navbar" id="unit_navbar_1">
+  <div class="unit_heading" id="unit_heading_1" onclick="toggleSubUnitNavBar(&quot;subunit_navbar_1&quot;)">
+     How does an NPTEL online course work? </div>
+    
+      <ul class="subunit_navbar_other" id="subunit_navbar_1">
+    
+            
+              
+      
+        
+          
+            
+                
+                  
+    <li class="subunit_other">
+  <div class="gcb-left-activity-title-with-progress gcb-nav-pa">
+      <a href="https://onlinecourses.nptel.ac.in/noc20_cs58/unit?unit=1&amp;lesson=2">Welcome to NPTEL open online course</a>
+      
+        <div class="gcb-progress-icon-holder"><img src="./Week5_Quiz_files/not_started.png" alt="Not Started" title="Not Started" class="gcb-progress-icon" id="progress-state-html-2">
+</div>
+      
+    </div></li>
+    
+  
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+          
+          
+        
+          
+            
+                
+            
+                
+                  
+    <li class="subunit_other">
+  <div class="gcb-left-activity-title-with-progress gcb-nav-pa">
+      <a href="https://onlinecourses.nptel.ac.in/noc20_cs58/unit?unit=1&amp;lesson=3">Information about the course and accessing the content</a>
+      
+        <div class="gcb-progress-icon-holder"><img src="./Week5_Quiz_files/not_started.png" alt="Not Started" title="Not Started" class="gcb-progress-icon" id="progress-state-html-3">
+</div>
+      
+    </div></li>
+    
+  
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+          
+          
+        
+          
+            
+                
+            
+                
+            
+                
+                  
+    <li class="subunit_other">
+  <div class="gcb-left-activity-title-with-progress gcb-nav-pa">
+      <a href="https://onlinecourses.nptel.ac.in/noc20_cs58/unit?unit=1&amp;lesson=4">Announcement</a>
+      
+        <div class="gcb-progress-icon-holder"><img src="./Week5_Quiz_files/not_started.png" alt="Not Started" title="Not Started" class="gcb-progress-icon" id="progress-state-html-4">
+</div>
+      
+    </div></li>
+    
+  
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+          
+          
+        
+          
+            
+                
+            
+                
+            
+                
+            
+                
+                  
+    <li class="subunit_other">
+  <div class="gcb-left-activity-title-with-progress gcb-nav-pa">
+      <a href="https://onlinecourses.nptel.ac.in/noc20_cs58/unit?unit=1&amp;lesson=5">Discussion Forum: Do you have a doubt or question</a>
+      
+        <div class="gcb-progress-icon-holder"><img src="./Week5_Quiz_files/not_started.png" alt="Not Started" title="Not Started" class="gcb-progress-icon" id="progress-state-html-5">
+</div>
+      
+    </div></li>
+    
+  
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+          
+          
+        
+          
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+                  
+    <li class="subunit_other">
+  <div class="gcb-left-activity-title-with-progress gcb-nav-pa">
+      <a href="https://onlinecourses.nptel.ac.in/noc20_cs58/unit?unit=1&amp;lesson=6">Know your scores in the Assignments</a>
+      
+        <div class="gcb-progress-icon-holder"><img src="./Week5_Quiz_files/not_started.png" alt="Not Started" title="Not Started" class="gcb-progress-icon" id="progress-state-html-6">
+</div>
+      
+    </div></li>
+    
+  
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+          
+          
+        
+          
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+                  
+    <li class="subunit_other">
+  <div class="gcb-left-activity-title-with-progress gcb-nav-pa">
+      <a href="https://onlinecourses.nptel.ac.in/noc20_cs58/unit?unit=1&amp;lesson=7">Certification criteria</a>
+      
+        <div class="gcb-progress-icon-holder"><img src="./Week5_Quiz_files/not_started.png" alt="Not Started" title="Not Started" class="gcb-progress-icon" id="progress-state-html-7">
+</div>
+      
+    </div></li>
+    
+  
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+          
+          
+        
+          
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+                  
+    <li class="subunit_other">
+  <div class="gcb-left-activity-title-with-progress gcb-nav-pa">
+      <a href="https://onlinecourses.nptel.ac.in/noc20_cs58/unit?unit=1&amp;lesson=8">Best practices to maximize the learning from the online course</a>
+      
+        <div class="gcb-progress-icon-holder"><img src="./Week5_Quiz_files/not_started.png" alt="Not Started" title="Not Started" class="gcb-progress-icon" id="progress-state-html-8">
+</div>
+      
+    </div></li>
+    
+  
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+          
+          
+        
+          
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+                  
+    <li class="subunit_other">
+  <div class="gcb-left-activity-title-with-progress gcb-nav-pa">
+      <a href="https://onlinecourses.nptel.ac.in/noc20_cs58/unit?unit=1&amp;lesson=9">Guidelines and Timelines</a>
+      
+        <div class="gcb-progress-icon-holder"><img src="./Week5_Quiz_files/not_started.png" alt="Not Started" title="Not Started" class="gcb-progress-icon" id="progress-state-html-9">
+</div>
+      
+    </div></li>
+    
+  
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+          
+          
+        
+          
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+                  
+    <li class="subunit_other">
+  <div class="gcb-left-activity-title-with-progress gcb-nav-pa">
+      <a href="https://onlinecourses.nptel.ac.in/noc20_cs58/unit?unit=1&amp;lesson=10">What you should know about the final certification exam</a>
+      
+        <div class="gcb-progress-icon-holder"><img src="./Week5_Quiz_files/not_started.png" alt="Not Started" title="Not Started" class="gcb-progress-icon" id="progress-state-html-10">
+</div>
+      
+    </div></li>
+    
+  
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+          
+          
+        
+          
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+                  
+    <li class="subunit_other">
+  <div class="gcb-left-activity-title-with-progress gcb-nav-pa">
+      <a href="https://onlinecourses.nptel.ac.in/noc20_cs58/unit?unit=1&amp;lesson=11">MCQ and MSQ Assignment</a>
+      
+        <div class="gcb-progress-icon-holder"><img src="./Week5_Quiz_files/not_started.png" alt="Not Started" title="Not Started" class="gcb-progress-icon" id="progress-state-html-11">
+</div>
+      
+    </div></li>
+    
+  
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+          
+          
+        
+          
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+                  
+    <li class="subunit_other">
+  <div class="gcb-left-activity-title-with-progress gcb-nav-pa">
+      <a href="https://onlinecourses.nptel.ac.in/noc20_cs58/unit?unit=1&amp;lesson=12">Numerical and Short Answer Assignment</a>
+      
+        <div class="gcb-progress-icon-holder"><img src="./Week5_Quiz_files/not_started.png" alt="Not Started" title="Not Started" class="gcb-progress-icon" id="progress-state-html-12">
+</div>
+      
+    </div></li>
+    
+  
+                
+            
+                
+            
+                
+            
+                
+            
+          
+          
+        
+          
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+                  
+    <li class="subunit_other">
+  <div class="gcb-left-activity-title-with-progress gcb-nav-pa">
+      <a href="https://onlinecourses.nptel.ac.in/noc20_cs58/unit?unit=1&amp;lesson=13">Subjective Assignment ( Essay Type)</a>
+      
+        <div class="gcb-progress-icon-holder"><img src="./Week5_Quiz_files/not_started.png" alt="Not Started" title="Not Started" class="gcb-progress-icon" id="progress-state-html-13">
+</div>
+      
+    </div></li>
+    
+  
+                
+            
+                
+            
+                
+            
+          
+          
+        
+          
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+                  
+    <li class="subunit_other">
+  <div class="gcb-left-activity-title-with-progress gcb-nav-pa">
+      <a href="https://onlinecourses.nptel.ac.in/noc20_cs58/unit?unit=1&amp;lesson=14">Subjective Assignment (Scan and Upload)</a>
+      
+        <div class="gcb-progress-icon-holder"><img src="./Week5_Quiz_files/not_started.png" alt="Not Started" title="Not Started" class="gcb-progress-icon" id="progress-state-html-14">
+</div>
+      
+    </div></li>
+    
+  
+                
+            
+                
+            
+          
+          
+        
+          
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+                  
+    <li class="subunit_other">
+  <div class="gcb-left-activity-title-with-progress gcb-nav-pa">
+      <a href="https://onlinecourses.nptel.ac.in/noc20_cs58/unit?unit=1&amp;lesson=15">Programming Assignment</a>
+      
+        <div class="gcb-progress-icon-holder"><img src="./Week5_Quiz_files/not_started.png" alt="Not Started" title="Not Started" class="gcb-progress-icon" id="progress-state-html-15">
+</div>
+      
+    </div></li>
+    
+  
+                
+            
+          
+          
+        
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+            
+          </ul></div>
+        
+      
+    
+      
+        
+      
+    
+      
+    
+      
+        
+          <div class="unit_navbar" id="unit_navbar_16">
+  <div class="unit_heading" id="unit_heading_16" onclick="toggleSubUnitNavBar(&quot;subunit_navbar_16&quot;)">
+     Week 0 : Assignment 0 </div>
+    
+      <ul class="subunit_navbar_other" id="subunit_navbar_16">
+    
+            
+              
+      
+  
+      
+  
+      
+  
+      
+        
+          
+          
+            
+                
+                  
+    
+      <li class="subunit_other">
+  <div class="gcb-left-activity-title-with-progress gcb-nav-pa">
+    
+          
+            <a href="https://onlinecourses.nptel.ac.in/noc20_cs58/assessment?name=123">Quiz : Assignment 0</a>
+          
+          
+            <div class="gcb-progress-icon-holder"><img src="./Week5_Quiz_files/not_started.png" alt="Not Started" title="Not Started" class="gcb-progress-icon" id="progress-state-123">
+</div>
+          
+        </div></li>
+  
+                
+            
+                
+            
+          
+        
+          
+          
+            
+                
+            
+                
+                  
+                
+            
+          
+        
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+            
+          </ul></div>
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <div class="unit_navbar" id="unit_navbar_17">
+  <div class="unit_heading" id="unit_heading_17" onclick="toggleSubUnitNavBar(&quot;subunit_navbar_17&quot;)">
+     Week 1 : </div>
+    
+      <ul class="subunit_navbar_other" id="subunit_navbar_17">
+    
+            
+              
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+        
+          
+            
+                
+                  
+    <li class="subunit_other">
+  <div class="gcb-left-activity-title-with-progress gcb-nav-pa">
+      <a href="https://onlinecourses.nptel.ac.in/noc20_cs58/unit?unit=17&amp;lesson=18">Lecture 01 : Introduction</a>
+      
+        <div class="gcb-progress-icon-holder"><img src="./Week5_Quiz_files/completed.png" alt="Completed" title="Completed" class="gcb-progress-icon" id="progress-state-html-18">
+</div>
+      
+    </div></li>
+    
+  
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+          
+          
+        
+          
+            
+                
+            
+                
+                  
+    <li class="subunit_other">
+  <div class="gcb-left-activity-title-with-progress gcb-nav-pa">
+      <a href="https://onlinecourses.nptel.ac.in/noc20_cs58/unit?unit=17&amp;lesson=19">Lecture 02 : Java Programming Steps</a>
+      
+        <div class="gcb-progress-icon-holder"><img src="./Week5_Quiz_files/not_started.png" alt="Not Started" title="Not Started" class="gcb-progress-icon" id="progress-state-html-19">
+</div>
+      
+    </div></li>
+    
+  
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+          
+          
+        
+          
+            
+                
+            
+                
+            
+                
+                  
+    <li class="subunit_other">
+  <div class="gcb-left-activity-title-with-progress gcb-nav-pa">
+      <a href="https://onlinecourses.nptel.ac.in/noc20_cs58/unit?unit=17&amp;lesson=20">Lecture 03 : Java Tools and Resources</a>
+      
+        <div class="gcb-progress-icon-holder"><img src="./Week5_Quiz_files/not_started.png" alt="Not Started" title="Not Started" class="gcb-progress-icon" id="progress-state-html-20">
+</div>
+      
+    </div></li>
+    
+  
+                
+            
+                
+            
+                
+            
+                
+            
+          
+          
+        
+          
+            
+                
+            
+                
+            
+                
+            
+                
+                  
+    <li class="subunit_other">
+  <div class="gcb-left-activity-title-with-progress gcb-nav-pa">
+      <a href="https://onlinecourses.nptel.ac.in/noc20_cs58/unit?unit=17&amp;lesson=21">Lecture 04 : Demonstration-I</a>
+      
+        <div class="gcb-progress-icon-holder"><img src="./Week5_Quiz_files/not_started.png" alt="Not Started" title="Not Started" class="gcb-progress-icon" id="progress-state-html-21">
+</div>
+      
+    </div></li>
+    
+  
+                
+            
+                
+            
+                
+            
+          
+          
+        
+          
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+                  
+    <li class="subunit_other">
+  <div class="gcb-left-activity-title-with-progress gcb-nav-pa">
+      <a href="https://onlinecourses.nptel.ac.in/noc20_cs58/unit?unit=17&amp;lesson=22">Lecture 05 : Java Applet Programming</a>
+      
+        <div class="gcb-progress-icon-holder"><img src="./Week5_Quiz_files/not_started.png" alt="Not Started" title="Not Started" class="gcb-progress-icon" id="progress-state-html-22">
+</div>
+      
+    </div></li>
+    
+  
+                
+            
+                
+            
+          
+          
+        
+          
+          
+            
+                
+                  
+    
+      <li class="subunit_other">
+  <div class="gcb-left-activity-title-with-progress gcb-nav-pa">
+    
+          
+            <a href="https://onlinecourses.nptel.ac.in/noc20_cs58/assessment?name=154">Quiz : Assignment 1</a>
+          
+          
+            <div class="gcb-progress-icon-holder"><img src="./Week5_Quiz_files/completed.png" alt="Completed" title="Completed" class="gcb-progress-icon" id="progress-state-154">
+</div>
+          
+        </div></li>
+  
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+          
+        
+          
+          
+            
+                
+            
+                
+                  
+    
+      <li class="subunit_other">
+  <div class="gcb-left-activity-title-with-progress gcb-nav-pa">
+    
+          
+            <a href="https://onlinecourses.nptel.ac.in/noc20_cs58/progassignment?name=124">Java Week 1:Q1</a>
+          
+          
+            <div class="gcb-progress-icon-holder"><img src="./Week5_Quiz_files/completed.png" alt="Completed" title="Completed" class="gcb-progress-icon" id="progress-state-124">
+</div>
+          
+        </div></li>
+  
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+          
+        
+          
+          
+            
+                
+            
+                
+            
+                
+                  
+    
+      <li class="subunit_other">
+  <div class="gcb-left-activity-title-with-progress gcb-nav-pa">
+    
+          
+            <a href="https://onlinecourses.nptel.ac.in/noc20_cs58/progassignment?name=125">Java Week 1:Q2</a>
+          
+          
+            <div class="gcb-progress-icon-holder"><img src="./Week5_Quiz_files/completed.png" alt="Completed" title="Completed" class="gcb-progress-icon" id="progress-state-125">
+</div>
+          
+        </div></li>
+  
+                
+            
+                
+            
+                
+            
+                
+            
+          
+        
+          
+          
+            
+                
+            
+                
+            
+                
+            
+                
+                  
+    
+      <li class="subunit_other">
+  <div class="gcb-left-activity-title-with-progress gcb-nav-pa">
+    
+          
+            <a href="https://onlinecourses.nptel.ac.in/noc20_cs58/progassignment?name=126">Java Week 1:Q3</a>
+          
+          
+            <div class="gcb-progress-icon-holder"><img src="./Week5_Quiz_files/completed.png" alt="Completed" title="Completed" class="gcb-progress-icon" id="progress-state-126">
+</div>
+          
+        </div></li>
+  
+                
+            
+                
+            
+                
+            
+          
+        
+          
+          
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+                  
+    
+      <li class="subunit_other">
+  <div class="gcb-left-activity-title-with-progress gcb-nav-pa">
+    
+          
+            <a href="https://onlinecourses.nptel.ac.in/noc20_cs58/progassignment?name=127">Java Week 1:Q4</a>
+          
+          
+            <div class="gcb-progress-icon-holder"><img src="./Week5_Quiz_files/completed.png" alt="Completed" title="Completed" class="gcb-progress-icon" id="progress-state-127">
+</div>
+          
+        </div></li>
+  
+                
+            
+                
+            
+          
+        
+          
+          
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+                  
+    
+      <li class="subunit_other">
+  <div class="gcb-left-activity-title-with-progress gcb-nav-pa">
+    
+          
+            <a href="https://onlinecourses.nptel.ac.in/noc20_cs58/progassignment?name=128">Java Week 1:Q5</a>
+          
+          
+            <div class="gcb-progress-icon-holder"><img src="./Week5_Quiz_files/completed.png" alt="Completed" title="Completed" class="gcb-progress-icon" id="progress-state-128">
+</div>
+          
+        </div></li>
+  
+                
+            
+          
+        
+          
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+                  
+    <li class="subunit_other">
+  <div class="gcb-left-activity-title-with-progress gcb-nav-pa">
+      <a href="https://onlinecourses.nptel.ac.in/noc20_cs58/unit?unit=17&amp;lesson=23">Feedback For Week 1</a>
+      
+        <div class="gcb-progress-icon-holder"><img src="./Week5_Quiz_files/not_started.png" alt="Not Started" title="Not Started" class="gcb-progress-icon" id="progress-state-html-23">
+</div>
+      
+    </div></li>
+    
+  
+                
+            
+          
+          
+        
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+            
+          </ul></div>
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <div class="unit_navbar" id="unit_navbar_24">
+  <div class="unit_heading" id="unit_heading_24" onclick="toggleSubUnitNavBar(&quot;subunit_navbar_24&quot;)">
+     Week 2 : </div>
+    
+      <ul class="subunit_navbar_other" id="subunit_navbar_24">
+    
+            
+              
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+        
+          
+            
+                
+                  
+    <li class="subunit_other">
+  <div class="gcb-left-activity-title-with-progress gcb-nav-pa">
+      <a href="https://onlinecourses.nptel.ac.in/noc20_cs58/unit?unit=24&amp;lesson=25">Lecture 06 : Demonstration-II</a>
+      
+        <div class="gcb-progress-icon-holder"><img src="./Week5_Quiz_files/not_started.png" alt="Not Started" title="Not Started" class="gcb-progress-icon" id="progress-state-html-25">
+</div>
+      
+    </div></li>
+    
+  
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+          
+          
+        
+          
+            
+                
+            
+                
+                  
+    <li class="subunit_other">
+  <div class="gcb-left-activity-title-with-progress gcb-nav-pa">
+      <a href="https://onlinecourses.nptel.ac.in/noc20_cs58/unit?unit=24&amp;lesson=26">Lecture 07 : Encapsulation</a>
+      
+        <div class="gcb-progress-icon-holder"><img src="./Week5_Quiz_files/not_started.png" alt="Not Started" title="Not Started" class="gcb-progress-icon" id="progress-state-html-26">
+</div>
+      
+    </div></li>
+    
+  
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+          
+          
+        
+          
+            
+                
+            
+                
+            
+                
+                  
+    <li class="subunit_other">
+  <div class="gcb-left-activity-title-with-progress gcb-nav-pa">
+      <a href="https://onlinecourses.nptel.ac.in/noc20_cs58/unit?unit=24&amp;lesson=27">Lecture 08 : Demonstration-III</a>
+      
+        <div class="gcb-progress-icon-holder"><img src="./Week5_Quiz_files/not_started.png" alt="Not Started" title="Not Started" class="gcb-progress-icon" id="progress-state-html-27">
+</div>
+      
+    </div></li>
+    
+  
+                
+            
+                
+            
+                
+            
+                
+            
+          
+          
+        
+          
+            
+                
+            
+                
+            
+                
+            
+                
+                  
+    <li class="subunit_other">
+  <div class="gcb-left-activity-title-with-progress gcb-nav-pa">
+      <a href="https://onlinecourses.nptel.ac.in/noc20_cs58/unit?unit=24&amp;lesson=28">Lecture 09 : Java Programming Insights</a>
+      
+        <div class="gcb-progress-icon-holder"><img src="./Week5_Quiz_files/not_started.png" alt="Not Started" title="Not Started" class="gcb-progress-icon" id="progress-state-html-28">
+</div>
+      
+    </div></li>
+    
+  
+                
+            
+                
+            
+                
+            
+          
+          
+        
+          
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+                  
+    <li class="subunit_other">
+  <div class="gcb-left-activity-title-with-progress gcb-nav-pa">
+      <a href="https://onlinecourses.nptel.ac.in/noc20_cs58/unit?unit=24&amp;lesson=29">Lecture 10 : Demonstration-IV</a>
+      
+        <div class="gcb-progress-icon-holder"><img src="./Week5_Quiz_files/not_started.png" alt="Not Started" title="Not Started" class="gcb-progress-icon" id="progress-state-html-29">
+</div>
+      
+    </div></li>
+    
+  
+                
+            
+                
+            
+          
+          
+        
+          
+          
+            
+                
+                  
+    
+      <li class="subunit_other">
+  <div class="gcb-left-activity-title-with-progress gcb-nav-pa">
+    
+          
+            <a href="https://onlinecourses.nptel.ac.in/noc20_cs58/assessment?name=156">Quiz : Assignment 2</a>
+          
+          
+            <div class="gcb-progress-icon-holder"><img src="./Week5_Quiz_files/completed.png" alt="Completed" title="Completed" class="gcb-progress-icon" id="progress-state-156">
+</div>
+          
+        </div></li>
+  
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+          
+        
+          
+          
+            
+                
+            
+                
+                  
+    
+      <li class="subunit_other">
+  <div class="gcb-left-activity-title-with-progress gcb-nav-pa">
+    
+          
+            <a href="https://onlinecourses.nptel.ac.in/noc20_cs58/progassignment?name=164">Java Week 2: Q1</a>
+          
+          
+            <div class="gcb-progress-icon-holder"><img src="./Week5_Quiz_files/completed.png" alt="Completed" title="Completed" class="gcb-progress-icon" id="progress-state-164">
+</div>
+          
+        </div></li>
+  
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+          
+        
+          
+          
+            
+                
+            
+                
+            
+                
+                  
+    
+      <li class="subunit_other">
+  <div class="gcb-left-activity-title-with-progress gcb-nav-pa">
+    
+          
+            <a href="https://onlinecourses.nptel.ac.in/noc20_cs58/progassignment?name=165">Java Week 2: Q2</a>
+          
+          
+            <div class="gcb-progress-icon-holder"><img src="./Week5_Quiz_files/completed.png" alt="Completed" title="Completed" class="gcb-progress-icon" id="progress-state-165">
+</div>
+          
+        </div></li>
+  
+                
+            
+                
+            
+                
+            
+                
+            
+          
+        
+          
+          
+            
+                
+            
+                
+            
+                
+            
+                
+                  
+    
+      <li class="subunit_other">
+  <div class="gcb-left-activity-title-with-progress gcb-nav-pa">
+    
+          
+            <a href="https://onlinecourses.nptel.ac.in/noc20_cs58/progassignment?name=166">Java Week 2: Q3</a>
+          
+          
+            <div class="gcb-progress-icon-holder"><img src="./Week5_Quiz_files/completed.png" alt="Completed" title="Completed" class="gcb-progress-icon" id="progress-state-166">
+</div>
+          
+        </div></li>
+  
+                
+            
+                
+            
+                
+            
+          
+        
+          
+          
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+                  
+    
+      <li class="subunit_other">
+  <div class="gcb-left-activity-title-with-progress gcb-nav-pa">
+    
+          
+            <a href="https://onlinecourses.nptel.ac.in/noc20_cs58/progassignment?name=167">Java Week 2: Q4</a>
+          
+          
+            <div class="gcb-progress-icon-holder"><img src="./Week5_Quiz_files/completed.png" alt="Completed" title="Completed" class="gcb-progress-icon" id="progress-state-167">
+</div>
+          
+        </div></li>
+  
+                
+            
+                
+            
+          
+        
+          
+          
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+                  
+    
+      <li class="subunit_other">
+  <div class="gcb-left-activity-title-with-progress gcb-nav-pa">
+    
+          
+            <a href="https://onlinecourses.nptel.ac.in/noc20_cs58/progassignment?name=168">Java Week 2: Q5</a>
+          
+          
+            <div class="gcb-progress-icon-holder"><img src="./Week5_Quiz_files/completed.png" alt="Completed" title="Completed" class="gcb-progress-icon" id="progress-state-168">
+</div>
+          
+        </div></li>
+  
+                
+            
+          
+        
+          
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+                  
+    <li class="subunit_other">
+  <div class="gcb-left-activity-title-with-progress gcb-nav-pa">
+      <a href="https://onlinecourses.nptel.ac.in/noc20_cs58/unit?unit=24&amp;lesson=30">Feedback For Week 2</a>
+      
+        <div class="gcb-progress-icon-holder"><img src="./Week5_Quiz_files/not_started.png" alt="Not Started" title="Not Started" class="gcb-progress-icon" id="progress-state-html-30">
+</div>
+      
+    </div></li>
+    
+  
+                
+            
+          
+          
+        
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+            
+          </ul></div>
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <div class="unit_navbar" id="unit_navbar_31">
+  <div class="unit_heading" id="unit_heading_31" onclick="toggleSubUnitNavBar(&quot;subunit_navbar_31&quot;)">
+     Week 3 : </div>
+    
+      <ul class="subunit_navbar_other" id="subunit_navbar_31">
+    
+            
+              
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+        
+          
+            
+                
+                  
+    <li class="subunit_other">
+  <div class="gcb-left-activity-title-with-progress gcb-nav-pa">
+      <a href="https://onlinecourses.nptel.ac.in/noc20_cs58/unit?unit=31&amp;lesson=32">Lecture 11 : Java Static Scope Rule</a>
+      
+        <div class="gcb-progress-icon-holder"><img src="./Week5_Quiz_files/not_started.png" alt="Not Started" title="Not Started" class="gcb-progress-icon" id="progress-state-html-32">
+</div>
+      
+    </div></li>
+    
+  
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+          
+          
+        
+          
+            
+                
+            
+                
+                  
+    <li class="subunit_other">
+  <div class="gcb-left-activity-title-with-progress gcb-nav-pa">
+      <a href="https://onlinecourses.nptel.ac.in/noc20_cs58/unit?unit=31&amp;lesson=33">Lecture 12 : Demonstration-V</a>
+      
+        <div class="gcb-progress-icon-holder"><img src="./Week5_Quiz_files/not_started.png" alt="Not Started" title="Not Started" class="gcb-progress-icon" id="progress-state-html-33">
+</div>
+      
+    </div></li>
+    
+  
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+          
+          
+        
+          
+            
+                
+            
+                
+            
+                
+                  
+    <li class="subunit_other">
+  <div class="gcb-left-activity-title-with-progress gcb-nav-pa">
+      <a href="https://onlinecourses.nptel.ac.in/noc20_cs58/unit?unit=31&amp;lesson=34">Lecture 13 : Inheritance</a>
+      
+        <div class="gcb-progress-icon-holder"><img src="./Week5_Quiz_files/not_started.png" alt="Not Started" title="Not Started" class="gcb-progress-icon" id="progress-state-html-34">
+</div>
+      
+    </div></li>
+    
+  
+                
+            
+                
+            
+                
+            
+                
+            
+          
+          
+        
+          
+            
+                
+            
+                
+            
+                
+            
+                
+                  
+    <li class="subunit_other">
+  <div class="gcb-left-activity-title-with-progress gcb-nav-pa">
+      <a href="https://onlinecourses.nptel.ac.in/noc20_cs58/unit?unit=31&amp;lesson=35">Lecture 14 : Demonstration-VI</a>
+      
+        <div class="gcb-progress-icon-holder"><img src="./Week5_Quiz_files/not_started.png" alt="Not Started" title="Not Started" class="gcb-progress-icon" id="progress-state-html-35">
+</div>
+      
+    </div></li>
+    
+  
+                
+            
+                
+            
+                
+            
+          
+          
+        
+          
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+                  
+    <li class="subunit_other">
+  <div class="gcb-left-activity-title-with-progress gcb-nav-pa">
+      <a href="https://onlinecourses.nptel.ac.in/noc20_cs58/unit?unit=31&amp;lesson=36">Lecture 15 : Information Hiding</a>
+      
+        <div class="gcb-progress-icon-holder"><img src="./Week5_Quiz_files/not_started.png" alt="Not Started" title="Not Started" class="gcb-progress-icon" id="progress-state-html-36">
+</div>
+      
+    </div></li>
+    
+  
+                
+            
+                
+            
+          
+          
+        
+          
+          
+            
+                
+                  
+    
+      <li class="subunit_other">
+  <div class="gcb-left-activity-title-with-progress gcb-nav-pa">
+    
+          
+            <a href="https://onlinecourses.nptel.ac.in/noc20_cs58/assessment?name=157">Quiz : Assignment 3</a>
+          
+          
+            <div class="gcb-progress-icon-holder"><img src="./Week5_Quiz_files/completed.png" alt="Completed" title="Completed" class="gcb-progress-icon" id="progress-state-157">
+</div>
+          
+        </div></li>
+  
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+          
+        
+          
+          
+            
+                
+            
+                
+                  
+    
+      <li class="subunit_other">
+  <div class="gcb-left-activity-title-with-progress gcb-nav-pa">
+    
+          
+            <a href="https://onlinecourses.nptel.ac.in/noc20_cs58/progassignment?name=129">Java Week 3: Q1</a>
+          
+          
+            <div class="gcb-progress-icon-holder"><img src="./Week5_Quiz_files/completed.png" alt="Completed" title="Completed" class="gcb-progress-icon" id="progress-state-129">
+</div>
+          
+        </div></li>
+  
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+          
+        
+          
+          
+            
+                
+            
+                
+            
+                
+                  
+    
+      <li class="subunit_other">
+  <div class="gcb-left-activity-title-with-progress gcb-nav-pa">
+    
+          
+            <a href="https://onlinecourses.nptel.ac.in/noc20_cs58/progassignment?name=130">Java Week 3: Q2</a>
+          
+          
+            <div class="gcb-progress-icon-holder"><img src="./Week5_Quiz_files/completed.png" alt="Completed" title="Completed" class="gcb-progress-icon" id="progress-state-130">
+</div>
+          
+        </div></li>
+  
+                
+            
+                
+            
+                
+            
+                
+            
+          
+        
+          
+          
+            
+                
+            
+                
+            
+                
+            
+                
+                  
+    
+      <li class="subunit_other">
+  <div class="gcb-left-activity-title-with-progress gcb-nav-pa">
+    
+          
+            <a href="https://onlinecourses.nptel.ac.in/noc20_cs58/progassignment?name=131">Java Week 3: Q3</a>
+          
+          
+            <div class="gcb-progress-icon-holder"><img src="./Week5_Quiz_files/completed.png" alt="Completed" title="Completed" class="gcb-progress-icon" id="progress-state-131">
+</div>
+          
+        </div></li>
+  
+                
+            
+                
+            
+                
+            
+          
+        
+          
+          
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+                  
+    
+      <li class="subunit_other">
+  <div class="gcb-left-activity-title-with-progress gcb-nav-pa">
+    
+          
+            <a href="https://onlinecourses.nptel.ac.in/noc20_cs58/progassignment?name=132">Java Week 3: Q4</a>
+          
+          
+            <div class="gcb-progress-icon-holder"><img src="./Week5_Quiz_files/completed.png" alt="Completed" title="Completed" class="gcb-progress-icon" id="progress-state-132">
+</div>
+          
+        </div></li>
+  
+                
+            
+                
+            
+          
+        
+          
+          
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+                  
+    
+      <li class="subunit_other">
+  <div class="gcb-left-activity-title-with-progress gcb-nav-pa">
+    
+          
+            <a href="https://onlinecourses.nptel.ac.in/noc20_cs58/progassignment?name=133">Java Week 3: Q5</a>
+          
+          
+            <div class="gcb-progress-icon-holder"><img src="./Week5_Quiz_files/completed.png" alt="Completed" title="Completed" class="gcb-progress-icon" id="progress-state-133">
+</div>
+          
+        </div></li>
+  
+                
+            
+          
+        
+          
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+                  
+    <li class="subunit_other">
+  <div class="gcb-left-activity-title-with-progress gcb-nav-pa">
+      <a href="https://onlinecourses.nptel.ac.in/noc20_cs58/unit?unit=31&amp;lesson=37">Feedback For Week 3</a>
+      
+        <div class="gcb-progress-icon-holder"><img src="./Week5_Quiz_files/not_started.png" alt="Not Started" title="Not Started" class="gcb-progress-icon" id="progress-state-html-37">
+</div>
+      
+    </div></li>
+    
+  
+                
+            
+          
+          
+        
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+            
+          </ul></div>
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <div class="unit_navbar" id="unit_navbar_38">
+  <div class="unit_heading" id="unit_heading_38" onclick="toggleSubUnitNavBar(&quot;subunit_navbar_38&quot;)">
+     Week 4 : </div>
+    
+      <ul class="subunit_navbar_other" id="subunit_navbar_38">
+    
+            
+              
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+        
+          
+            
+                
+                  
+    <li class="subunit_other">
+  <div class="gcb-left-activity-title-with-progress gcb-nav-pa">
+      <a href="https://onlinecourses.nptel.ac.in/noc20_cs58/unit?unit=38&amp;lesson=39">Lecture 16 : Demonstration-VII</a>
+      
+        <div class="gcb-progress-icon-holder"><img src="./Week5_Quiz_files/not_started.png" alt="Not Started" title="Not Started" class="gcb-progress-icon" id="progress-state-html-39">
+</div>
+      
+    </div></li>
+    
+  
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+          
+          
+        
+          
+            
+                
+            
+                
+                  
+    <li class="subunit_other">
+  <div class="gcb-left-activity-title-with-progress gcb-nav-pa">
+      <a href="https://onlinecourses.nptel.ac.in/noc20_cs58/unit?unit=38&amp;lesson=40">Lecture 17 : Packages-I</a>
+      
+        <div class="gcb-progress-icon-holder"><img src="./Week5_Quiz_files/not_started.png" alt="Not Started" title="Not Started" class="gcb-progress-icon" id="progress-state-html-40">
+</div>
+      
+    </div></li>
+    
+  
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+          
+          
+        
+          
+            
+                
+            
+                
+            
+                
+                  
+    <li class="subunit_other">
+  <div class="gcb-left-activity-title-with-progress gcb-nav-pa">
+      <a href="https://onlinecourses.nptel.ac.in/noc20_cs58/unit?unit=38&amp;lesson=41">Lecture 18 : Packages-II</a>
+      
+        <div class="gcb-progress-icon-holder"><img src="./Week5_Quiz_files/not_started.png" alt="Not Started" title="Not Started" class="gcb-progress-icon" id="progress-state-html-41">
+</div>
+      
+    </div></li>
+    
+  
+                
+            
+                
+            
+                
+            
+                
+            
+          
+          
+        
+          
+            
+                
+            
+                
+            
+                
+            
+                
+                  
+    <li class="subunit_other">
+  <div class="gcb-left-activity-title-with-progress gcb-nav-pa">
+      <a href="https://onlinecourses.nptel.ac.in/noc20_cs58/unit?unit=38&amp;lesson=42">Lecture 19 : Demonstration-VIII</a>
+      
+        <div class="gcb-progress-icon-holder"><img src="./Week5_Quiz_files/not_started.png" alt="Not Started" title="Not Started" class="gcb-progress-icon" id="progress-state-html-42">
+</div>
+      
+    </div></li>
+    
+  
+                
+            
+                
+            
+                
+            
+          
+          
+        
+          
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+                  
+    <li class="subunit_other">
+  <div class="gcb-left-activity-title-with-progress gcb-nav-pa">
+      <a href="https://onlinecourses.nptel.ac.in/noc20_cs58/unit?unit=38&amp;lesson=43">Lecture 20 : Interface-I</a>
+      
+        <div class="gcb-progress-icon-holder"><img src="./Week5_Quiz_files/not_started.png" alt="Not Started" title="Not Started" class="gcb-progress-icon" id="progress-state-html-43">
+</div>
+      
+    </div></li>
+    
+  
+                
+            
+                
+            
+          
+          
+        
+          
+          
+            
+                
+                  
+    
+      <li class="subunit_other">
+  <div class="gcb-left-activity-title-with-progress gcb-nav-pa">
+    
+          
+            <a href="https://onlinecourses.nptel.ac.in/noc20_cs58/assessment?name=158">Quiz : Assignment 4</a>
+          
+          
+            <div class="gcb-progress-icon-holder"><img src="./Week5_Quiz_files/completed.png" alt="Completed" title="Completed" class="gcb-progress-icon" id="progress-state-158">
+</div>
+          
+        </div></li>
+  
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+          
+        
+          
+          
+            
+                
+            
+                
+                  
+    
+      <li class="subunit_other">
+  <div class="gcb-left-activity-title-with-progress gcb-nav-pa">
+    
+          
+            <a href="https://onlinecourses.nptel.ac.in/noc20_cs58/progassignment?name=172">Java Week 4: Q1</a>
+          
+          
+            <div class="gcb-progress-icon-holder"><img src="./Week5_Quiz_files/completed.png" alt="Completed" title="Completed" class="gcb-progress-icon" id="progress-state-172">
+</div>
+          
+        </div></li>
+  
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+          
+        
+          
+          
+            
+                
+            
+                
+            
+                
+                  
+    
+      <li class="subunit_other">
+  <div class="gcb-left-activity-title-with-progress gcb-nav-pa">
+    
+          
+            <a href="https://onlinecourses.nptel.ac.in/noc20_cs58/progassignment?name=173">Java Week 4: Q2</a>
+          
+          
+            <div class="gcb-progress-icon-holder"><img src="./Week5_Quiz_files/completed.png" alt="Completed" title="Completed" class="gcb-progress-icon" id="progress-state-173">
+</div>
+          
+        </div></li>
+  
+                
+            
+                
+            
+                
+            
+                
+            
+          
+        
+          
+          
+            
+                
+            
+                
+            
+                
+            
+                
+                  
+    
+      <li class="subunit_other">
+  <div class="gcb-left-activity-title-with-progress gcb-nav-pa">
+    
+          
+            <a href="https://onlinecourses.nptel.ac.in/noc20_cs58/progassignment?name=174">Java Week 4: Q3</a>
+          
+          
+            <div class="gcb-progress-icon-holder"><img src="./Week5_Quiz_files/completed.png" alt="Completed" title="Completed" class="gcb-progress-icon" id="progress-state-174">
+</div>
+          
+        </div></li>
+  
+                
+            
+                
+            
+                
+            
+          
+        
+          
+          
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+                  
+    
+      <li class="subunit_other">
+  <div class="gcb-left-activity-title-with-progress gcb-nav-pa">
+    
+          
+            <a href="https://onlinecourses.nptel.ac.in/noc20_cs58/progassignment?name=175">Java Week 4: Q4</a>
+          
+          
+            <div class="gcb-progress-icon-holder"><img src="./Week5_Quiz_files/completed.png" alt="Completed" title="Completed" class="gcb-progress-icon" id="progress-state-175">
+</div>
+          
+        </div></li>
+  
+                
+            
+                
+            
+          
+        
+          
+          
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+                  
+    
+      <li class="subunit_other">
+  <div class="gcb-left-activity-title-with-progress gcb-nav-pa">
+    
+          
+            <a href="https://onlinecourses.nptel.ac.in/noc20_cs58/progassignment?name=176">Java Week 4: Q5</a>
+          
+          
+            <div class="gcb-progress-icon-holder"><img src="./Week5_Quiz_files/completed.png" alt="Completed" title="Completed" class="gcb-progress-icon" id="progress-state-176">
+</div>
+          
+        </div></li>
+  
+                
+            
+          
+        
+          
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+                  
+    <li class="subunit_other">
+  <div class="gcb-left-activity-title-with-progress gcb-nav-pa">
+      <a href="https://onlinecourses.nptel.ac.in/noc20_cs58/unit?unit=38&amp;lesson=44">Feedback For Week 4</a>
+      
+        <div class="gcb-progress-icon-holder"><img src="./Week5_Quiz_files/not_started.png" alt="Not Started" title="Not Started" class="gcb-progress-icon" id="progress-state-html-44">
+</div>
+      
+    </div></li>
+    
+  
+                
+            
+          
+          
+        
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+            
+          </ul></div>
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <div class="unit_navbar" id="unit_navbar_45">
+  <div class="unit_heading" id="unit_heading_45" onclick="toggleSubUnitNavBar(&quot;subunit_navbar_45&quot;)">
+     Week 5 : </div>
+    
+      <ul class="subunit_navbar_current" id="subunit_navbar_45">
+    
+            
+              
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+        
+          
+            
+                
+                  
+    <li class="subunit_other">
+  <div class="gcb-left-activity-title-with-progress gcb-nav-pa">
+      <a href="https://onlinecourses.nptel.ac.in/noc20_cs58/unit?unit=45&amp;lesson=46">Lecture 21 : Interface-II</a>
+      
+        <div class="gcb-progress-icon-holder"><img src="./Week5_Quiz_files/not_started.png" alt="Not Started" title="Not Started" class="gcb-progress-icon" id="progress-state-html-46">
+</div>
+      
+    </div></li>
+    
+  
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+          
+          
+        
+          
+            
+                
+            
+                
+                  
+    <li class="subunit_other">
+  <div class="gcb-left-activity-title-with-progress gcb-nav-pa">
+      <a href="https://onlinecourses.nptel.ac.in/noc20_cs58/unit?unit=45&amp;lesson=47">Lecture 22 : Demonstration-IX</a>
+      
+        <div class="gcb-progress-icon-holder"><img src="./Week5_Quiz_files/not_started.png" alt="Not Started" title="Not Started" class="gcb-progress-icon" id="progress-state-html-47">
+</div>
+      
+    </div></li>
+    
+  
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+          
+          
+        
+          
+            
+                
+            
+                
+            
+                
+                  
+    <li class="subunit_other">
+  <div class="gcb-left-activity-title-with-progress gcb-nav-pa">
+      <a href="https://onlinecourses.nptel.ac.in/noc20_cs58/unit?unit=45&amp;lesson=48">Lecture 23 : Exception Handling-I</a>
+      
+        <div class="gcb-progress-icon-holder"><img src="./Week5_Quiz_files/not_started.png" alt="Not Started" title="Not Started" class="gcb-progress-icon" id="progress-state-html-48">
+</div>
+      
+    </div></li>
+    
+  
+                
+            
+                
+            
+                
+            
+                
+            
+          
+          
+        
+          
+            
+                
+            
+                
+            
+                
+            
+                
+                  
+    <li class="subunit_other">
+  <div class="gcb-left-activity-title-with-progress gcb-nav-pa">
+      <a href="https://onlinecourses.nptel.ac.in/noc20_cs58/unit?unit=45&amp;lesson=49">Lecture 24 : Exception Handling-II</a>
+      
+        <div class="gcb-progress-icon-holder"><img src="./Week5_Quiz_files/not_started.png" alt="Not Started" title="Not Started" class="gcb-progress-icon" id="progress-state-html-49">
+</div>
+      
+    </div></li>
+    
+  
+                
+            
+                
+            
+                
+            
+          
+          
+        
+          
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+                  
+    <li class="subunit_other">
+  <div class="gcb-left-activity-title-with-progress gcb-nav-pa">
+      <a href="https://onlinecourses.nptel.ac.in/noc20_cs58/unit?unit=45&amp;lesson=50">Lecture 25 : Exception Handling-III</a>
+      
+        <div class="gcb-progress-icon-holder"><img src="./Week5_Quiz_files/not_started.png" alt="Not Started" title="Not Started" class="gcb-progress-icon" id="progress-state-html-50">
+</div>
+      
+    </div></li>
+    
+  
+                
+            
+                
+            
+          
+          
+        
+          
+          
+            
+                
+                  
+    
+      <li class="subunit_current">
+  <div class="gcb-left-activity-title-with-progress gcb-nav-pa">
+    
+          
+            <a href="https://onlinecourses.nptel.ac.in/noc20_cs58/assessment?name=159">Quiz : Assignment 5</a>
+          
+          
+            <div class="gcb-progress-icon-holder"><img src="./Week5_Quiz_files/completed.png" alt="Completed" title="Completed" class="gcb-progress-icon" id="progress-state-159">
+</div>
+          
+        </div></li>
+  
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+          
+        
+          
+          
+            
+                
+            
+                
+                  
+    
+      <li class="subunit_other">
+  <div class="gcb-left-activity-title-with-progress gcb-nav-pa">
+    
+          
+            <a href="https://onlinecourses.nptel.ac.in/noc20_cs58/progassignment?name=134">Java Week 5:Q1</a>
+          
+          
+            <div class="gcb-progress-icon-holder"><img src="./Week5_Quiz_files/completed.png" alt="Completed" title="Completed" class="gcb-progress-icon" id="progress-state-134">
+</div>
+          
+        </div></li>
+  
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+          
+        
+          
+          
+            
+                
+            
+                
+            
+                
+                  
+    
+      <li class="subunit_other">
+  <div class="gcb-left-activity-title-with-progress gcb-nav-pa">
+    
+          
+            <a href="https://onlinecourses.nptel.ac.in/noc20_cs58/progassignment?name=135">Java Week 5: Q2</a>
+          
+          
+            <div class="gcb-progress-icon-holder"><img src="./Week5_Quiz_files/completed.png" alt="Completed" title="Completed" class="gcb-progress-icon" id="progress-state-135">
+</div>
+          
+        </div></li>
+  
+                
+            
+                
+            
+                
+            
+                
+            
+          
+        
+          
+          
+            
+                
+            
+                
+            
+                
+            
+                
+                  
+    
+      <li class="subunit_other">
+  <div class="gcb-left-activity-title-with-progress gcb-nav-pa">
+    
+          
+            <a href="https://onlinecourses.nptel.ac.in/noc20_cs58/progassignment?name=136">Java Week 5: Q3</a>
+          
+          
+            <div class="gcb-progress-icon-holder"><img src="./Week5_Quiz_files/completed.png" alt="Completed" title="Completed" class="gcb-progress-icon" id="progress-state-136">
+</div>
+          
+        </div></li>
+  
+                
+            
+                
+            
+                
+            
+          
+        
+          
+          
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+                  
+    
+      <li class="subunit_other">
+  <div class="gcb-left-activity-title-with-progress gcb-nav-pa">
+    
+          
+            <a href="https://onlinecourses.nptel.ac.in/noc20_cs58/progassignment?name=137">Java Week 5: Q4</a>
+          
+          
+            <div class="gcb-progress-icon-holder"><img src="./Week5_Quiz_files/completed.png" alt="Completed" title="Completed" class="gcb-progress-icon" id="progress-state-137">
+</div>
+          
+        </div></li>
+  
+                
+            
+                
+            
+          
+        
+          
+          
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+                  
+    
+      <li class="subunit_other">
+  <div class="gcb-left-activity-title-with-progress gcb-nav-pa">
+    
+          
+            <a href="https://onlinecourses.nptel.ac.in/noc20_cs58/progassignment?name=138">Java Week 5: Q5</a>
+          
+          
+            <div class="gcb-progress-icon-holder"><img src="./Week5_Quiz_files/completed.png" alt="Completed" title="Completed" class="gcb-progress-icon" id="progress-state-138">
+</div>
+          
+        </div></li>
+  
+                
+            
+          
+        
+          
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+                  
+    <li class="subunit_other">
+  <div class="gcb-left-activity-title-with-progress gcb-nav-pa">
+      <a href="https://onlinecourses.nptel.ac.in/noc20_cs58/unit?unit=45&amp;lesson=51">Feedback For Week 5</a>
+      
+        <div class="gcb-progress-icon-holder"><img src="./Week5_Quiz_files/not_started.png" alt="Not Started" title="Not Started" class="gcb-progress-icon" id="progress-state-html-51">
+</div>
+      
+    </div></li>
+    
+  
+                
+            
+          
+          
+        
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+            
+          </ul></div>
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <div class="unit_navbar" id="unit_navbar_52">
+  <div class="unit_heading" id="unit_heading_52" onclick="toggleSubUnitNavBar(&quot;subunit_navbar_52&quot;)">
+     Week 6 : </div>
+    
+      <ul class="subunit_navbar_other" id="subunit_navbar_52">
+    
+            
+              
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+        
+          
+            
+                
+                  
+    <li class="subunit_other">
+  <div class="gcb-left-activity-title-with-progress gcb-nav-pa">
+      <a href="https://onlinecourses.nptel.ac.in/noc20_cs58/unit?unit=52&amp;lesson=53">Lecture 26 : Demonstration-X</a>
+      
+        <div class="gcb-progress-icon-holder"><img src="./Week5_Quiz_files/not_started.png" alt="Not Started" title="Not Started" class="gcb-progress-icon" id="progress-state-html-53">
+</div>
+      
+    </div></li>
+    
+  
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+          
+          
+        
+          
+            
+                
+            
+                
+                  
+    <li class="subunit_other">
+  <div class="gcb-left-activity-title-with-progress gcb-nav-pa">
+      <a href="https://onlinecourses.nptel.ac.in/noc20_cs58/unit?unit=52&amp;lesson=54">Lecture 27 : Multithreading-I</a>
+      
+        <div class="gcb-progress-icon-holder"><img src="./Week5_Quiz_files/not_started.png" alt="Not Started" title="Not Started" class="gcb-progress-icon" id="progress-state-html-54">
+</div>
+      
+    </div></li>
+    
+  
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+          
+          
+        
+          
+            
+                
+            
+                
+            
+                
+                  
+    <li class="subunit_other">
+  <div class="gcb-left-activity-title-with-progress gcb-nav-pa">
+      <a href="https://onlinecourses.nptel.ac.in/noc20_cs58/unit?unit=52&amp;lesson=55">Lecture 28 : Multithreading-II</a>
+      
+        <div class="gcb-progress-icon-holder"><img src="./Week5_Quiz_files/not_started.png" alt="Not Started" title="Not Started" class="gcb-progress-icon" id="progress-state-html-55">
+</div>
+      
+    </div></li>
+    
+  
+                
+            
+                
+            
+                
+            
+                
+            
+          
+          
+        
+          
+            
+                
+            
+                
+            
+                
+            
+                
+                  
+    <li class="subunit_other">
+  <div class="gcb-left-activity-title-with-progress gcb-nav-pa">
+      <a href="https://onlinecourses.nptel.ac.in/noc20_cs58/unit?unit=52&amp;lesson=56">Lecture 29 : Demonstration-XI</a>
+      
+        <div class="gcb-progress-icon-holder"><img src="./Week5_Quiz_files/not_started.png" alt="Not Started" title="Not Started" class="gcb-progress-icon" id="progress-state-html-56">
+</div>
+      
+    </div></li>
+    
+  
+                
+            
+                
+            
+                
+            
+          
+          
+        
+          
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+                  
+    <li class="subunit_other">
+  <div class="gcb-left-activity-title-with-progress gcb-nav-pa">
+      <a href="https://onlinecourses.nptel.ac.in/noc20_cs58/unit?unit=52&amp;lesson=57">Lecture 30 : I-O Stream-I</a>
+      
+        <div class="gcb-progress-icon-holder"><img src="./Week5_Quiz_files/not_started.png" alt="Not Started" title="Not Started" class="gcb-progress-icon" id="progress-state-html-57">
+</div>
+      
+    </div></li>
+    
+  
+                
+            
+                
+            
+          
+          
+        
+          
+          
+            
+                
+                  
+    
+      <li class="subunit_other">
+  <div class="gcb-left-activity-title-with-progress gcb-nav-pa">
+    
+          
+            <a href="https://onlinecourses.nptel.ac.in/noc20_cs58/assessment?name=160">Quiz : Assignment 6</a>
+          
+          
+            <div class="gcb-progress-icon-holder"><img src="./Week5_Quiz_files/not_started.png" alt="Not Started" title="Not Started" class="gcb-progress-icon" id="progress-state-160">
+</div>
+          
+        </div></li>
+  
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+          
+        
+          
+          
+            
+                
+            
+                
+                  
+    
+      <li class="subunit_other">
+  <div class="gcb-left-activity-title-with-progress gcb-nav-pa">
+    
+          
+            <a href="https://onlinecourses.nptel.ac.in/noc20_cs58/progassignment?name=177">Java Week 6: Q1</a>
+          
+          
+            <div class="gcb-progress-icon-holder"><img src="./Week5_Quiz_files/not_started.png" alt="Not Started" title="Not Started" class="gcb-progress-icon" id="progress-state-177">
+</div>
+          
+        </div></li>
+  
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+          
+        
+          
+          
+            
+                
+            
+                
+            
+                
+                  
+    
+      <li class="subunit_other">
+  <div class="gcb-left-activity-title-with-progress gcb-nav-pa">
+    
+          
+            <a href="https://onlinecourses.nptel.ac.in/noc20_cs58/progassignment?name=178">Java Week 6: Q2</a>
+          
+          
+            <div class="gcb-progress-icon-holder"><img src="./Week5_Quiz_files/not_started.png" alt="Not Started" title="Not Started" class="gcb-progress-icon" id="progress-state-178">
+</div>
+          
+        </div></li>
+  
+                
+            
+                
+            
+                
+            
+                
+            
+          
+        
+          
+          
+            
+                
+            
+                
+            
+                
+            
+                
+                  
+    
+      <li class="subunit_other">
+  <div class="gcb-left-activity-title-with-progress gcb-nav-pa">
+    
+          
+            <a href="https://onlinecourses.nptel.ac.in/noc20_cs58/progassignment?name=179">Java Week 6: Q3</a>
+          
+          
+            <div class="gcb-progress-icon-holder"><img src="./Week5_Quiz_files/not_started.png" alt="Not Started" title="Not Started" class="gcb-progress-icon" id="progress-state-179">
+</div>
+          
+        </div></li>
+  
+                
+            
+                
+            
+                
+            
+          
+        
+          
+          
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+                  
+    
+      <li class="subunit_other">
+  <div class="gcb-left-activity-title-with-progress gcb-nav-pa">
+    
+          
+            <a href="https://onlinecourses.nptel.ac.in/noc20_cs58/progassignment?name=180">Java Week 6: Q4</a>
+          
+          
+            <div class="gcb-progress-icon-holder"><img src="./Week5_Quiz_files/not_started.png" alt="Not Started" title="Not Started" class="gcb-progress-icon" id="progress-state-180">
+</div>
+          
+        </div></li>
+  
+                
+            
+                
+            
+          
+        
+          
+          
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+                  
+    
+      <li class="subunit_other">
+  <div class="gcb-left-activity-title-with-progress gcb-nav-pa">
+    
+          
+            <a href="https://onlinecourses.nptel.ac.in/noc20_cs58/progassignment?name=181">Java Week 6: Q5</a>
+          
+          
+            <div class="gcb-progress-icon-holder"><img src="./Week5_Quiz_files/not_started.png" alt="Not Started" title="Not Started" class="gcb-progress-icon" id="progress-state-181">
+</div>
+          
+        </div></li>
+  
+                
+            
+          
+        
+          
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+                  
+    <li class="subunit_other">
+  <div class="gcb-left-activity-title-with-progress gcb-nav-pa">
+      <a href="https://onlinecourses.nptel.ac.in/noc20_cs58/unit?unit=52&amp;lesson=58">Feedback For Week 6</a>
+      
+        <div class="gcb-progress-icon-holder"><img src="./Week5_Quiz_files/not_started.png" alt="Not Started" title="Not Started" class="gcb-progress-icon" id="progress-state-html-58">
+</div>
+      
+    </div></li>
+    
+  
+                
+            
+          
+          
+        
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+            
+          </ul></div>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          <div class="unit_navbar" id="unit_navbar_105">
+  <div class="unit_heading" id="unit_heading_105" onclick="toggleSubUnitNavBar(&quot;subunit_navbar_105&quot;)">
+     Solution </div>
+    
+      <ul class="subunit_navbar_other" id="subunit_navbar_105">
+    
+            
+              
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+        
+          
+            
+                
+                  
+    <li class="subunit_other">
+  <div class="gcb-left-activity-title-with-progress gcb-nav-pa">
+      <a href="https://onlinecourses.nptel.ac.in/noc20_cs58/unit?unit=105&amp;lesson=106">Assignment 0 Solution</a>
+      
+        <div class="gcb-progress-icon-holder"><img src="./Week5_Quiz_files/not_started.png" alt="Not Started" title="Not Started" class="gcb-progress-icon" id="progress-state-html-106">
+</div>
+      
+    </div></li>
+    
+  
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+          
+          
+        
+          
+            
+                
+            
+                
+                  
+    <li class="subunit_other">
+  <div class="gcb-left-activity-title-with-progress gcb-nav-pa">
+      <a href="https://onlinecourses.nptel.ac.in/noc20_cs58/unit?unit=105&amp;lesson=107">Assignment 1 Solution</a>
+      
+        <div class="gcb-progress-icon-holder"><img src="./Week5_Quiz_files/not_started.png" alt="Not Started" title="Not Started" class="gcb-progress-icon" id="progress-state-html-107">
+</div>
+      
+    </div></li>
+    
+  
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+          
+          
+        
+          
+            
+                
+            
+                
+            
+                
+                  
+    <li class="subunit_other">
+  <div class="gcb-left-activity-title-with-progress gcb-nav-pa">
+      <a href="https://onlinecourses.nptel.ac.in/noc20_cs58/unit?unit=105&amp;lesson=108">Assignment 2 Solution</a>
+      
+        <div class="gcb-progress-icon-holder"><img src="./Week5_Quiz_files/not_started.png" alt="Not Started" title="Not Started" class="gcb-progress-icon" id="progress-state-html-108">
+</div>
+      
+    </div></li>
+    
+  
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+          
+          
+        
+          
+            
+                
+            
+                
+            
+                
+            
+                
+                  
+    <li class="subunit_other">
+  <div class="gcb-left-activity-title-with-progress gcb-nav-pa">
+      <a href="https://onlinecourses.nptel.ac.in/noc20_cs58/unit?unit=105&amp;lesson=109">Assignment 3 Solution</a>
+      
+        <div class="gcb-progress-icon-holder"><img src="./Week5_Quiz_files/not_started.png" alt="Not Started" title="Not Started" class="gcb-progress-icon" id="progress-state-html-109">
+</div>
+      
+    </div></li>
+    
+  
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+          
+          
+        
+          
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+                  
+    <li class="subunit_other">
+  <div class="gcb-left-activity-title-with-progress gcb-nav-pa">
+      <a href="https://onlinecourses.nptel.ac.in/noc20_cs58/unit?unit=105&amp;lesson=110">Assignment 4 Solution</a>
+      
+        <div class="gcb-progress-icon-holder"><img src="./Week5_Quiz_files/not_started.png" alt="Not Started" title="Not Started" class="gcb-progress-icon" id="progress-state-html-110">
+</div>
+      
+    </div></li>
+    
+  
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+          
+          
+        
+          
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+                  
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+          
+          
+        
+          
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+                  
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+          
+          
+        
+          
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+                  
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+          
+          
+        
+          
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+                  
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+          
+          
+        
+          
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+                  
+                
+            
+                
+            
+                
+            
+                
+            
+          
+          
+        
+          
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+                  
+                
+            
+                
+            
+                
+            
+          
+          
+        
+          
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+                  
+                
+            
+                
+            
+          
+          
+        
+          
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+                  
+                
+            
+          
+          
+        
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+            
+          </ul></div>
+        
+      
+    
+      
+        
+          <div class="unit_navbar" id="unit_navbar_101">
+  <div class="unit_heading" id="unit_heading_101" onclick="toggleSubUnitNavBar(&quot;subunit_navbar_101&quot;)">
+     DOWNLOAD VIDEOS </div>
+    
+      <ul class="subunit_navbar_other" id="subunit_navbar_101">
+    
+            
+              
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+        
+          
+            
+                
+                  
+    <li class="subunit_other">
+  <div class="gcb-left-activity-title-with-progress gcb-nav-pa">
+      <a href="https://onlinecourses.nptel.ac.in/noc20_cs58/unit?unit=101&amp;lesson=102">MP4 FORMAT</a>
+      
+        <div class="gcb-progress-icon-holder"><img src="./Week5_Quiz_files/not_started.png" alt="Not Started" title="Not Started" class="gcb-progress-icon" id="progress-state-html-102">
+</div>
+      
+    </div></li>
+    
+  
+                
+            
+          
+          
+        
+      
+  
+      
+  
+      
+  
+      
+  
+            
+          </ul></div>
+        
+      
+    
+      
+        
+          <div class="unit_navbar" id="unit_navbar_103">
+  <div class="unit_heading" id="unit_heading_103" onclick="toggleSubUnitNavBar(&quot;subunit_navbar_103&quot;)">
+     Text Transcripts </div>
+    
+      <ul class="subunit_navbar_other" id="subunit_navbar_103">
+    
+            
+              
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+        
+          
+            
+                
+                  
+    <li class="subunit_other">
+  <div class="gcb-left-activity-title-with-progress gcb-nav-pa">
+      <a href="https://onlinecourses.nptel.ac.in/noc20_cs58/unit?unit=103&amp;lesson=104">English Transcripts</a>
+      
+        <div class="gcb-progress-icon-holder"><img src="./Week5_Quiz_files/not_started.png" alt="Not Started" title="Not Started" class="gcb-progress-icon" id="progress-state-html-104">
+</div>
+      
+    </div></li>
+    
+  
+                
+            
+          
+          
+        
+      
+  
+      
+  
+      
+  
+            
+          </ul></div>
+        
+      
+    
+      
+    
+      
+    
+    &nbsp;
+  </div>
+
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
+
+
+
+</div>
+  
+
+  <div id="gcb-main-article" class="gcb-article tab-content" role="main">
+    <div class="gcb-html-hook" id="unit-after-content-begins"></div>
+
+    
+        
+      
+      
+         
+           
+            <div class="gcb-button-box" style="margin:10px">
+              <script>
+      $(function() {
+        setTimeout(function() {  // Wait for question layout
+          $('.gcb-butterbar-container')
+              .css('position', 'fixed')
+              .css('top', $(window).height());
+          $('.gcb-butterbar').css('margin', 0);
+          
+          cbShowMsgAutoHide('Assessment submitted.');
+        }, 0);
+      });
+</script>
+<h1 style="display:inline;background:green;color:#fff;">
+  
+  Thank you for taking the Assignment 5.
+</h1>
+
+
+
+            </div>
+           
+         
+           
+            <div class="gcb-aside gcb-button-box">
+              
+  
+
+
+<script>
+  window.onload = function(){
+    var miliSecondsToDisableSubmit = calculateTimerToDisableSubmit();
+    var days = miliSecondsToDisableSubmit  / ( 24 * 60 * 60 * 1000);
+    if(days >= 0 && days < 14){
+      setTimeout(function() {
+        var submit_button = document.getElementById("submitbutton");
+        if(submit_button) submit_button .disabled = true;
+        var check_answer_button = document.getElementById("checkAnswerButton");
+        if(check_answer_button) check_answer_button.disabled = true;
+        cbShowMsgAutoHide('Due date passed');
+      }, miliSecondsToDisableSubmit );
+    }
+  }
+
+  function calculateTimerToDisableSubmit(){
+    var date_in_mili_sec = '1603304940000.0';
+    var current_mili_seconds = new Date().getTime();
+    var difference_in_miliseconds = date_in_mili_sec - current_mili_seconds ;
+    return difference_in_miliseconds;
+  }
+</script>
+
+
+<div class="gcb-assessment-contents">
+  <h1>
+    Assignment 5
+    
+
+  </h1>
+
+  
+
+    
+
+    <script>
+      assessmentXsrfToken = '1603293167/OyK_kQR2vrKE8kcE_dmaZg==';
+
+      var assessmentGlobals = {};
+      var enable_negative_marking = JSON.parse("false");
+      assessmentGlobals.isReviewForm = false;
+      assessmentGlobals.grader = 'auto';
+      
+    </script>
+
+    <div class="assessment-top-info">
+    
+      
+        <div class="gcb-valid-submission-due-date">
+          Due date: 2020-10-21, 23:59 IST.
+        </div>
+      
+      
+    
+    
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div id="assessmentContents"></div>
+
+    
+        
+       
+       <div style="color:green;">
+         <strong>
+         Your last recorded submission was on 2020-10-21, 20:42 IST
+         </strong>
+       </div>
+        
+       
+<div data-xsrf-token="1603293167/OyK_kQR2vrKE8kcE_dmaZg==" data-unit-id="159" data-question-batch-id="A159" data-scored="True">
+  <script>
+    var questionData = questionData || {};
+    questionData.xsrfToken = '1603293167/OyK_kQR2vrKE8kcE_dmaZg==';
+    
+      questionData.savedAnswers = questionData.savedAnswers || {};
+      $.extend(questionData.savedAnswers,
+          JSON.parse("{\"version\": \"1.5\", \"individualScores\": {\"dnVeQ9UpoTXS\": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]}, \"containedTypes\": {}, \"answers\": {}, \"quids\": {}, \"rawScore\": 0, \"totalWeight\": 0, \"percentScore\": 0, \"dnVeQ9UpoTXS\": {\"is_answered\": true, \"dnVeQ9UpoTXS.0.6414804330741760\": {\"responses\": [true, true, true, true], \"is_answered\": true}, \"dnVeQ9UpoTXS.1.5973680604577792\": {\"responses\": [false, true, true, true], \"is_answered\": true}, \"dnVeQ9UpoTXS.2.4587534989393920\": {\"responses\": [true, false, false, false], \"is_answered\": true}, \"dnVeQ9UpoTXS.3.5446662330777600\": {\"responses\": [true, true, true, false], \"is_answered\": true}, \"dnVeQ9UpoTXS.4.5936494156972032\": {\"responses\": [true, false, false, false], \"is_answered\": true}, \"dnVeQ9UpoTXS.5.5863745531150336\": {\"responses\": [false, false, false, true], \"is_answered\": true}, \"dnVeQ9UpoTXS.6.6137945907003392\": {\"responses\": [false, false, true, false], \"is_answered\": true}, \"dnVeQ9UpoTXS.7.5609428437958656\": {\"responses\": [true, true, true, true], \"is_answered\": true}, \"dnVeQ9UpoTXS.8.5983831625564160\": {\"responses\": [false, true, false, false], \"is_answered\": true}, \"dnVeQ9UpoTXS.9.4520263671611392\": {\"responses\": [true, true, true, true], \"is_answered\": true}}}"));
+    
+  </script>
+  <div class="gcb-assessment-body">
+    <div><link href="./Week5_Quiz_files/questions.css" rel="stylesheet" type="text/css">
+<script>
+    questionData['dnVeQ9UpoTXS'] = JSON.parse(window.atob("eyJkblZlUTlVcG9UWFMuMC42NDE0ODA0MzMwNzQxNzYwIjogeyJ3ZWlnaHQiOiAxLjAsICJxdWVzdGlvbiI6IDY0MTQ4MDQzMzA3NDE3NjB9LCAiZG5WZVE5VXBvVFhTLjEuNTk3MzY4MDYwNDU3Nzc5MiI6IHsid2VpZ2h0IjogMS4wLCAicXVlc3Rpb24iOiA1OTczNjgwNjA0NTc3NzkyfSwgImRuVmVROVVwb1RYUy4yLjQ1ODc1MzQ5ODkzOTM5MjAiOiB7IndlaWdodCI6IDEuMCwgInF1ZXN0aW9uIjogNDU4NzUzNDk4OTM5MzkyMH0sICJkblZlUTlVcG9UWFMuMy41NDQ2NjYyMzMwNzc3NjAwIjogeyJ3ZWlnaHQiOiAxLjAsICJxdWVzdGlvbiI6IDU0NDY2NjIzMzA3Nzc2MDB9LCAiZG5WZVE5VXBvVFhTLjQuNTkzNjQ5NDE1Njk3MjAzMiI6IHsid2VpZ2h0IjogMS4wLCAicXVlc3Rpb24iOiA1OTM2NDk0MTU2OTcyMDMyfSwgImRuVmVROVVwb1RYUy41LjU4NjM3NDU1MzExNTAzMzYiOiB7IndlaWdodCI6IDEuMCwgInF1ZXN0aW9uIjogNTg2Mzc0NTUzMTE1MDMzNn0sICJkblZlUTlVcG9UWFMuNi42MTM3OTQ1OTA3MDAzMzkyIjogeyJ3ZWlnaHQiOiAxLjAsICJxdWVzdGlvbiI6IDYxMzc5NDU5MDcwMDMzOTJ9LCAiZG5WZVE5VXBvVFhTLjcuNTYwOTQyODQzNzk1ODY1NiI6IHsid2VpZ2h0IjogMS4wLCAicXVlc3Rpb24iOiA1NjA5NDI4NDM3OTU4NjU2fSwgImRuVmVROVVwb1RYUy44LjU5ODM4MzE2MjU1NjQxNjAiOiB7IndlaWdodCI6IDEuMCwgInF1ZXN0aW9uIjogNTk4MzgzMTYyNTU2NDE2MH0sICJkblZlUTlVcG9UWFMuOS40NTIwMjYzNjcxNjExMzkyIjogeyJ3ZWlnaHQiOiAxLjAsICJxdWVzdGlvbiI6IDQ1MjAyNjM2NzE2MTEzOTJ9fQ=="));
+
+
+    var assessmentTagMessages = {};
+
+    
+    assessmentTagMessages.correct = "Correct. ";
+    
+    assessmentTagMessages.incorrect = "Incorrect. ";
+    
+    assessmentTagMessages.partiallyCorrect = "Partially Correct. ";
+
+    
+    assessmentTagMessages.correctAnswer = " Yes, the answer is correct. ";
+    
+    assessmentTagMessages.incorrectAnswer = " No, the answer is incorrect. ";
+    
+    assessmentTagMessages.partiallyCorrectAnswer = " The answer is partially correct. ";
+
+    
+    assessmentTagMessages.correctAnswerHeading = "The correct answer is:";
+    
+    assessmentTagMessages.targetedFeedbackHeading = "Targeted Feedback:";
+    
+    assessmentTagMessages.feedbackHeading = "Feedback:";
+
+    
+    assessmentTagMessages.yourScoreIs = " Your score is: ";
+  </script>
+<script src="./Week5_Quiz_files/grading_lib.js"></script>
+<script src="./Week5_Quiz_files/grading.js"></script>
+<noscript>
+    <div class="qt-warning">
+        
+         JavaScript should be enabled to grade this question. 
+    </div>
+</noscript>
+
+
+
+
+  <div class="qt-question-group " id="dnVeQ9UpoTXS">
+   
+      <div class="qt-introduction">
+        
+      </div>
+   
+       
+          <link href="./Week5_Quiz_files/questions.css" rel="stylesheet" type="text/css">
+<script>
+    questionData['dnVeQ9UpoTXS.0.6414804330741760'] = JSON.parse(window.atob("eyJxdWlkIjogNjQxNDgwNDMzMDc0MTc2MCwgImNob2ljZXMiOiBbXSwgImRlZmF1bHRGZWVkYmFjayI6ICIiLCAicGVybXV0ZUNob2ljZXMiOiBmYWxzZSwgInNob3dBbnN3ZXJXaGVuSW5jb3JyZWN0IjogZmFsc2UsICJhbGxPck5vdGhpbmdHcmFkaW5nIjogZmFsc2UsICJ3ZWlnaHQiOiAxLjB9"));
+
+
+    var assessmentTagMessages = {};
+
+    
+    assessmentTagMessages.correct = "Correct. ";
+    
+    assessmentTagMessages.incorrect = "Incorrect. ";
+    
+    assessmentTagMessages.partiallyCorrect = "Partially Correct. ";
+
+    
+    assessmentTagMessages.correctAnswer = " Yes, the answer is correct. ";
+    
+    assessmentTagMessages.incorrectAnswer = " No, the answer is incorrect. ";
+    
+    assessmentTagMessages.partiallyCorrectAnswer = " The answer is partially correct. ";
+
+    
+    assessmentTagMessages.correctAnswerHeading = "The correct answer is:";
+    
+    assessmentTagMessages.targetedFeedbackHeading = "Targeted Feedback:";
+    
+    assessmentTagMessages.feedbackHeading = "Feedback:";
+
+    
+    assessmentTagMessages.yourScoreIs = " Your score is: ";
+  </script>
+<script src="./Week5_Quiz_files/grading_lib.js"></script>
+<script src="./Week5_Quiz_files/grading.js"></script>
+<noscript>
+    <div class="qt-warning">
+        
+         JavaScript should be enabled to grade this question. 
+    </div>
+</noscript>
+
+
+
+
+<script>
+//Function to allow user to deselect the assignment question
+// @todo Mrunal : When we submit the question once if we revisit that question again we have to double click on option to
+// deselect it ,if it is already selected.This is a minor issue and will be resolved
+function clearSelection(radio) {
+    if (radio.getAttribute("data-checked")) {
+        radio.checked = false;
+        radio.removeAttribute("data-checked");
+    }
+    else
+    {
+        radio.setAttribute("data-checked", "true");
+    }
+}
+</script>
+<style>
+  label {
+    margin-bottom: 0px;
+    font-weight: normal;
+  }
+</style>
+  <div class="gcb-cols gcb-question-counter-increment gcb-question-row">
+      <div class="gcb-col-counters gcb-show-question-counter"></div>
+      <div class="qt-mc-question qt-embedded" id="dnVeQ9UpoTXS.0.6414804330741760">
+        <div class="qt-points">
+          <em>
+            
+              
+              1 point
+            
+          </em>
+        </div>
+
+        <div class="qt-question"><img alt="" class="yui-img" src="./Week5_Quiz_files/a5q1.JPG" style="width: 729px; height: 160px;" title=""></div>
+        <div class="qt-choices">
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="0" id="dnVeQ9UpoTXS.0.6414804330741760.0" name="dnVeQ9UpoTXS.0.6414804330741760" onclick="clearSelection(this)" type="checkbox">
+              <label for="dnVeQ9UpoTXS.0.6414804330741760.0">
+                a.
+              </label>
+            </div>
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="1" id="dnVeQ9UpoTXS.0.6414804330741760.1" name="dnVeQ9UpoTXS.0.6414804330741760" onclick="clearSelection(this)" type="checkbox">
+              <label for="dnVeQ9UpoTXS.0.6414804330741760.1">
+                b.
+              </label>
+            </div>
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="2" id="dnVeQ9UpoTXS.0.6414804330741760.2" name="dnVeQ9UpoTXS.0.6414804330741760" onclick="clearSelection(this)" type="checkbox">
+              <label for="dnVeQ9UpoTXS.0.6414804330741760.2">
+                c.
+              </label>
+            </div>
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="3" id="dnVeQ9UpoTXS.0.6414804330741760.3" name="dnVeQ9UpoTXS.0.6414804330741760" onclick="clearSelection(this)" type="checkbox">
+              <label for="dnVeQ9UpoTXS.0.6414804330741760.3">
+                d.
+              </label>
+            </div>
+          
+        </div>
+
+        <!--  -->
+
+        <div class="qt-feedback qt-hidden" role="alert">
+        </div>
+      </div>
+  </div>
+
+       
+          <link href="./Week5_Quiz_files/questions.css" rel="stylesheet" type="text/css">
+<script>
+    questionData['dnVeQ9UpoTXS.1.5973680604577792'] = JSON.parse(window.atob("eyJxdWlkIjogNTk3MzY4MDYwNDU3Nzc5MiwgImNob2ljZXMiOiBbXSwgImRlZmF1bHRGZWVkYmFjayI6ICIiLCAicGVybXV0ZUNob2ljZXMiOiBmYWxzZSwgInNob3dBbnN3ZXJXaGVuSW5jb3JyZWN0IjogZmFsc2UsICJhbGxPck5vdGhpbmdHcmFkaW5nIjogZmFsc2UsICJ3ZWlnaHQiOiAxLjB9"));
+
+
+    var assessmentTagMessages = {};
+
+    
+    assessmentTagMessages.correct = "Correct. ";
+    
+    assessmentTagMessages.incorrect = "Incorrect. ";
+    
+    assessmentTagMessages.partiallyCorrect = "Partially Correct. ";
+
+    
+    assessmentTagMessages.correctAnswer = " Yes, the answer is correct. ";
+    
+    assessmentTagMessages.incorrectAnswer = " No, the answer is incorrect. ";
+    
+    assessmentTagMessages.partiallyCorrectAnswer = " The answer is partially correct. ";
+
+    
+    assessmentTagMessages.correctAnswerHeading = "The correct answer is:";
+    
+    assessmentTagMessages.targetedFeedbackHeading = "Targeted Feedback:";
+    
+    assessmentTagMessages.feedbackHeading = "Feedback:";
+
+    
+    assessmentTagMessages.yourScoreIs = " Your score is: ";
+  </script>
+<script src="./Week5_Quiz_files/grading_lib.js"></script>
+<script src="./Week5_Quiz_files/grading.js"></script>
+<noscript>
+    <div class="qt-warning">
+        
+         JavaScript should be enabled to grade this question. 
+    </div>
+</noscript>
+
+
+
+
+<script>
+//Function to allow user to deselect the assignment question
+// @todo Mrunal : When we submit the question once if we revisit that question again we have to double click on option to
+// deselect it ,if it is already selected.This is a minor issue and will be resolved
+function clearSelection(radio) {
+    if (radio.getAttribute("data-checked")) {
+        radio.checked = false;
+        radio.removeAttribute("data-checked");
+    }
+    else
+    {
+        radio.setAttribute("data-checked", "true");
+    }
+}
+</script>
+<style>
+  label {
+    margin-bottom: 0px;
+    font-weight: normal;
+  }
+</style>
+  <div class="gcb-cols gcb-question-counter-increment gcb-question-row">
+      <div class="gcb-col-counters gcb-show-question-counter"></div>
+      <div class="qt-mc-question qt-embedded" id="dnVeQ9UpoTXS.1.5973680604577792">
+        <div class="qt-points">
+          <em>
+            
+              
+              1 point
+            
+          </em>
+        </div>
+
+        <div class="qt-question"><img alt="" class="yui-img" src="./Week5_Quiz_files/a5q2.JPG" style="height: 325px;" title=""></div>
+        <div class="qt-choices">
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="0" id="dnVeQ9UpoTXS.1.5973680604577792.0" name="dnVeQ9UpoTXS.1.5973680604577792" onclick="clearSelection(this)" type="checkbox">
+              <label for="dnVeQ9UpoTXS.1.5973680604577792.0">
+                a.
+              </label>
+            </div>
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="1" id="dnVeQ9UpoTXS.1.5973680604577792.1" name="dnVeQ9UpoTXS.1.5973680604577792" onclick="clearSelection(this)" type="checkbox">
+              <label for="dnVeQ9UpoTXS.1.5973680604577792.1">
+                b.
+              </label>
+            </div>
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="2" id="dnVeQ9UpoTXS.1.5973680604577792.2" name="dnVeQ9UpoTXS.1.5973680604577792" onclick="clearSelection(this)" type="checkbox">
+              <label for="dnVeQ9UpoTXS.1.5973680604577792.2">
+                c.
+              </label>
+            </div>
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="3" id="dnVeQ9UpoTXS.1.5973680604577792.3" name="dnVeQ9UpoTXS.1.5973680604577792" onclick="clearSelection(this)" type="checkbox">
+              <label for="dnVeQ9UpoTXS.1.5973680604577792.3">
+                d.
+              </label>
+            </div>
+          
+        </div>
+
+        <!--  -->
+
+        <div class="qt-feedback qt-hidden" role="alert">
+        </div>
+      </div>
+  </div>
+
+       
+          <link href="./Week5_Quiz_files/questions.css" rel="stylesheet" type="text/css">
+<script>
+    questionData['dnVeQ9UpoTXS.2.4587534989393920'] = JSON.parse(window.atob("eyJxdWlkIjogNDU4NzUzNDk4OTM5MzkyMCwgImNob2ljZXMiOiBbXSwgImRlZmF1bHRGZWVkYmFjayI6ICIiLCAicGVybXV0ZUNob2ljZXMiOiBmYWxzZSwgInNob3dBbnN3ZXJXaGVuSW5jb3JyZWN0IjogZmFsc2UsICJhbGxPck5vdGhpbmdHcmFkaW5nIjogZmFsc2UsICJ3ZWlnaHQiOiAxLjB9"));
+
+
+    var assessmentTagMessages = {};
+
+    
+    assessmentTagMessages.correct = "Correct. ";
+    
+    assessmentTagMessages.incorrect = "Incorrect. ";
+    
+    assessmentTagMessages.partiallyCorrect = "Partially Correct. ";
+
+    
+    assessmentTagMessages.correctAnswer = " Yes, the answer is correct. ";
+    
+    assessmentTagMessages.incorrectAnswer = " No, the answer is incorrect. ";
+    
+    assessmentTagMessages.partiallyCorrectAnswer = " The answer is partially correct. ";
+
+    
+    assessmentTagMessages.correctAnswerHeading = "The correct answer is:";
+    
+    assessmentTagMessages.targetedFeedbackHeading = "Targeted Feedback:";
+    
+    assessmentTagMessages.feedbackHeading = "Feedback:";
+
+    
+    assessmentTagMessages.yourScoreIs = " Your score is: ";
+  </script>
+<script src="./Week5_Quiz_files/grading_lib.js"></script>
+<script src="./Week5_Quiz_files/grading.js"></script>
+<noscript>
+    <div class="qt-warning">
+        
+         JavaScript should be enabled to grade this question. 
+    </div>
+</noscript>
+
+
+
+
+<script>
+//Function to allow user to deselect the assignment question
+// @todo Mrunal : When we submit the question once if we revisit that question again we have to double click on option to
+// deselect it ,if it is already selected.This is a minor issue and will be resolved
+function clearSelection(radio) {
+    if (radio.getAttribute("data-checked")) {
+        radio.checked = false;
+        radio.removeAttribute("data-checked");
+    }
+    else
+    {
+        radio.setAttribute("data-checked", "true");
+    }
+}
+</script>
+<style>
+  label {
+    margin-bottom: 0px;
+    font-weight: normal;
+  }
+</style>
+  <div class="gcb-cols gcb-question-counter-increment gcb-question-row">
+      <div class="gcb-col-counters gcb-show-question-counter"></div>
+      <div class="qt-mc-question qt-embedded" id="dnVeQ9UpoTXS.2.4587534989393920">
+        <div class="qt-points">
+          <em>
+            
+              
+              1 point
+            
+          </em>
+        </div>
+
+        <div class="qt-question"><img alt="" class="yui-img" src="./Week5_Quiz_files/a5q3.JPG" style="width: 724px; height: 541px;" title=""></div>
+        <div class="qt-choices">
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="0" id="dnVeQ9UpoTXS.2.4587534989393920.0" name="dnVeQ9UpoTXS.2.4587534989393920" onclick="clearSelection(this)" type="radio">
+              <label for="dnVeQ9UpoTXS.2.4587534989393920.0">
+                a.
+              </label>
+            </div>
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="1" id="dnVeQ9UpoTXS.2.4587534989393920.1" name="dnVeQ9UpoTXS.2.4587534989393920" onclick="clearSelection(this)" type="radio">
+              <label for="dnVeQ9UpoTXS.2.4587534989393920.1">
+                b.
+              </label>
+            </div>
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="2" id="dnVeQ9UpoTXS.2.4587534989393920.2" name="dnVeQ9UpoTXS.2.4587534989393920" onclick="clearSelection(this)" type="radio">
+              <label for="dnVeQ9UpoTXS.2.4587534989393920.2">
+                c.
+              </label>
+            </div>
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="3" id="dnVeQ9UpoTXS.2.4587534989393920.3" name="dnVeQ9UpoTXS.2.4587534989393920" onclick="clearSelection(this)" type="radio">
+              <label for="dnVeQ9UpoTXS.2.4587534989393920.3">
+                d.
+              </label>
+            </div>
+          
+        </div>
+
+        <!--  -->
+
+        <div class="qt-feedback qt-hidden" role="alert">
+        </div>
+      </div>
+  </div>
+
+       
+          <link href="./Week5_Quiz_files/questions.css" rel="stylesheet" type="text/css">
+<script>
+    questionData['dnVeQ9UpoTXS.3.5446662330777600'] = JSON.parse(window.atob("eyJxdWlkIjogNTQ0NjY2MjMzMDc3NzYwMCwgImNob2ljZXMiOiBbXSwgImRlZmF1bHRGZWVkYmFjayI6ICIiLCAicGVybXV0ZUNob2ljZXMiOiBmYWxzZSwgInNob3dBbnN3ZXJXaGVuSW5jb3JyZWN0IjogZmFsc2UsICJhbGxPck5vdGhpbmdHcmFkaW5nIjogZmFsc2UsICJ3ZWlnaHQiOiAxLjB9"));
+
+
+    var assessmentTagMessages = {};
+
+    
+    assessmentTagMessages.correct = "Correct. ";
+    
+    assessmentTagMessages.incorrect = "Incorrect. ";
+    
+    assessmentTagMessages.partiallyCorrect = "Partially Correct. ";
+
+    
+    assessmentTagMessages.correctAnswer = " Yes, the answer is correct. ";
+    
+    assessmentTagMessages.incorrectAnswer = " No, the answer is incorrect. ";
+    
+    assessmentTagMessages.partiallyCorrectAnswer = " The answer is partially correct. ";
+
+    
+    assessmentTagMessages.correctAnswerHeading = "The correct answer is:";
+    
+    assessmentTagMessages.targetedFeedbackHeading = "Targeted Feedback:";
+    
+    assessmentTagMessages.feedbackHeading = "Feedback:";
+
+    
+    assessmentTagMessages.yourScoreIs = " Your score is: ";
+  </script>
+<script src="./Week5_Quiz_files/grading_lib.js"></script>
+<script src="./Week5_Quiz_files/grading.js"></script>
+<noscript>
+    <div class="qt-warning">
+        
+         JavaScript should be enabled to grade this question. 
+    </div>
+</noscript>
+
+
+
+
+<script>
+//Function to allow user to deselect the assignment question
+// @todo Mrunal : When we submit the question once if we revisit that question again we have to double click on option to
+// deselect it ,if it is already selected.This is a minor issue and will be resolved
+function clearSelection(radio) {
+    if (radio.getAttribute("data-checked")) {
+        radio.checked = false;
+        radio.removeAttribute("data-checked");
+    }
+    else
+    {
+        radio.setAttribute("data-checked", "true");
+    }
+}
+</script>
+<style>
+  label {
+    margin-bottom: 0px;
+    font-weight: normal;
+  }
+</style>
+  <div class="gcb-cols gcb-question-counter-increment gcb-question-row">
+      <div class="gcb-col-counters gcb-show-question-counter"></div>
+      <div class="qt-mc-question qt-embedded" id="dnVeQ9UpoTXS.3.5446662330777600">
+        <div class="qt-points">
+          <em>
+            
+              
+              1 point
+            
+          </em>
+        </div>
+
+        <div class="qt-question"><img alt="" class="yui-img" src="./Week5_Quiz_files/a5q4.JPG" style="width: 721px; height: 188px;" title=""></div>
+        <div class="qt-choices">
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="0" id="dnVeQ9UpoTXS.3.5446662330777600.0" name="dnVeQ9UpoTXS.3.5446662330777600" onclick="clearSelection(this)" type="checkbox">
+              <label for="dnVeQ9UpoTXS.3.5446662330777600.0">
+                a.
+              </label>
+            </div>
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="1" id="dnVeQ9UpoTXS.3.5446662330777600.1" name="dnVeQ9UpoTXS.3.5446662330777600" onclick="clearSelection(this)" type="checkbox">
+              <label for="dnVeQ9UpoTXS.3.5446662330777600.1">
+                b.
+              </label>
+            </div>
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="2" id="dnVeQ9UpoTXS.3.5446662330777600.2" name="dnVeQ9UpoTXS.3.5446662330777600" onclick="clearSelection(this)" type="checkbox">
+              <label for="dnVeQ9UpoTXS.3.5446662330777600.2">
+                c.
+              </label>
+            </div>
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="3" id="dnVeQ9UpoTXS.3.5446662330777600.3" name="dnVeQ9UpoTXS.3.5446662330777600" onclick="clearSelection(this)" type="checkbox">
+              <label for="dnVeQ9UpoTXS.3.5446662330777600.3">
+                d.
+              </label>
+            </div>
+          
+        </div>
+
+        <!--  -->
+
+        <div class="qt-feedback qt-hidden" role="alert">
+        </div>
+      </div>
+  </div>
+
+       
+          <link href="./Week5_Quiz_files/questions.css" rel="stylesheet" type="text/css">
+<script>
+    questionData['dnVeQ9UpoTXS.4.5936494156972032'] = JSON.parse(window.atob("eyJxdWlkIjogNTkzNjQ5NDE1Njk3MjAzMiwgImNob2ljZXMiOiBbXSwgImRlZmF1bHRGZWVkYmFjayI6ICIiLCAicGVybXV0ZUNob2ljZXMiOiBmYWxzZSwgInNob3dBbnN3ZXJXaGVuSW5jb3JyZWN0IjogZmFsc2UsICJhbGxPck5vdGhpbmdHcmFkaW5nIjogZmFsc2UsICJ3ZWlnaHQiOiAxLjB9"));
+
+
+    var assessmentTagMessages = {};
+
+    
+    assessmentTagMessages.correct = "Correct. ";
+    
+    assessmentTagMessages.incorrect = "Incorrect. ";
+    
+    assessmentTagMessages.partiallyCorrect = "Partially Correct. ";
+
+    
+    assessmentTagMessages.correctAnswer = " Yes, the answer is correct. ";
+    
+    assessmentTagMessages.incorrectAnswer = " No, the answer is incorrect. ";
+    
+    assessmentTagMessages.partiallyCorrectAnswer = " The answer is partially correct. ";
+
+    
+    assessmentTagMessages.correctAnswerHeading = "The correct answer is:";
+    
+    assessmentTagMessages.targetedFeedbackHeading = "Targeted Feedback:";
+    
+    assessmentTagMessages.feedbackHeading = "Feedback:";
+
+    
+    assessmentTagMessages.yourScoreIs = " Your score is: ";
+  </script>
+<script src="./Week5_Quiz_files/grading_lib.js"></script>
+<script src="./Week5_Quiz_files/grading.js"></script>
+<noscript>
+    <div class="qt-warning">
+        
+         JavaScript should be enabled to grade this question. 
+    </div>
+</noscript>
+
+
+
+
+<script>
+//Function to allow user to deselect the assignment question
+// @todo Mrunal : When we submit the question once if we revisit that question again we have to double click on option to
+// deselect it ,if it is already selected.This is a minor issue and will be resolved
+function clearSelection(radio) {
+    if (radio.getAttribute("data-checked")) {
+        radio.checked = false;
+        radio.removeAttribute("data-checked");
+    }
+    else
+    {
+        radio.setAttribute("data-checked", "true");
+    }
+}
+</script>
+<style>
+  label {
+    margin-bottom: 0px;
+    font-weight: normal;
+  }
+</style>
+  <div class="gcb-cols gcb-question-counter-increment gcb-question-row">
+      <div class="gcb-col-counters gcb-show-question-counter"></div>
+      <div class="qt-mc-question qt-embedded" id="dnVeQ9UpoTXS.4.5936494156972032">
+        <div class="qt-points">
+          <em>
+            
+              
+              1 point
+            
+          </em>
+        </div>
+
+        <div class="qt-question"><img alt="" class="yui-img" src="./Week5_Quiz_files/a5q5.JPG" title=""></div>
+        <div class="qt-choices">
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="0" id="dnVeQ9UpoTXS.4.5936494156972032.0" name="dnVeQ9UpoTXS.4.5936494156972032" onclick="clearSelection(this)" type="radio">
+              <label for="dnVeQ9UpoTXS.4.5936494156972032.0">
+                a.
+              </label>
+            </div>
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="1" id="dnVeQ9UpoTXS.4.5936494156972032.1" name="dnVeQ9UpoTXS.4.5936494156972032" onclick="clearSelection(this)" type="radio">
+              <label for="dnVeQ9UpoTXS.4.5936494156972032.1">
+                b.
+              </label>
+            </div>
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="2" id="dnVeQ9UpoTXS.4.5936494156972032.2" name="dnVeQ9UpoTXS.4.5936494156972032" onclick="clearSelection(this)" type="radio">
+              <label for="dnVeQ9UpoTXS.4.5936494156972032.2">
+                c.
+              </label>
+            </div>
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="3" id="dnVeQ9UpoTXS.4.5936494156972032.3" name="dnVeQ9UpoTXS.4.5936494156972032" onclick="clearSelection(this)" type="radio">
+              <label for="dnVeQ9UpoTXS.4.5936494156972032.3">
+                d.
+              </label>
+            </div>
+          
+        </div>
+
+        <!--  -->
+
+        <div class="qt-feedback qt-hidden" role="alert">
+        </div>
+      </div>
+  </div>
+
+       
+          <link href="./Week5_Quiz_files/questions.css" rel="stylesheet" type="text/css">
+<script>
+    questionData['dnVeQ9UpoTXS.5.5863745531150336'] = JSON.parse(window.atob("eyJxdWlkIjogNTg2Mzc0NTUzMTE1MDMzNiwgImNob2ljZXMiOiBbXSwgImRlZmF1bHRGZWVkYmFjayI6ICIiLCAicGVybXV0ZUNob2ljZXMiOiBmYWxzZSwgInNob3dBbnN3ZXJXaGVuSW5jb3JyZWN0IjogZmFsc2UsICJhbGxPck5vdGhpbmdHcmFkaW5nIjogZmFsc2UsICJ3ZWlnaHQiOiAxLjB9"));
+
+
+    var assessmentTagMessages = {};
+
+    
+    assessmentTagMessages.correct = "Correct. ";
+    
+    assessmentTagMessages.incorrect = "Incorrect. ";
+    
+    assessmentTagMessages.partiallyCorrect = "Partially Correct. ";
+
+    
+    assessmentTagMessages.correctAnswer = " Yes, the answer is correct. ";
+    
+    assessmentTagMessages.incorrectAnswer = " No, the answer is incorrect. ";
+    
+    assessmentTagMessages.partiallyCorrectAnswer = " The answer is partially correct. ";
+
+    
+    assessmentTagMessages.correctAnswerHeading = "The correct answer is:";
+    
+    assessmentTagMessages.targetedFeedbackHeading = "Targeted Feedback:";
+    
+    assessmentTagMessages.feedbackHeading = "Feedback:";
+
+    
+    assessmentTagMessages.yourScoreIs = " Your score is: ";
+  </script>
+<script src="./Week5_Quiz_files/grading_lib.js"></script>
+<script src="./Week5_Quiz_files/grading.js"></script>
+<noscript>
+    <div class="qt-warning">
+        
+         JavaScript should be enabled to grade this question. 
+    </div>
+</noscript>
+
+
+
+
+<script>
+//Function to allow user to deselect the assignment question
+// @todo Mrunal : When we submit the question once if we revisit that question again we have to double click on option to
+// deselect it ,if it is already selected.This is a minor issue and will be resolved
+function clearSelection(radio) {
+    if (radio.getAttribute("data-checked")) {
+        radio.checked = false;
+        radio.removeAttribute("data-checked");
+    }
+    else
+    {
+        radio.setAttribute("data-checked", "true");
+    }
+}
+</script>
+<style>
+  label {
+    margin-bottom: 0px;
+    font-weight: normal;
+  }
+</style>
+  <div class="gcb-cols gcb-question-counter-increment gcb-question-row">
+      <div class="gcb-col-counters gcb-show-question-counter"></div>
+      <div class="qt-mc-question qt-embedded" id="dnVeQ9UpoTXS.5.5863745531150336">
+        <div class="qt-points">
+          <em>
+            
+              
+              1 point
+            
+          </em>
+        </div>
+
+        <div class="qt-question"><img alt="" class="yui-img" src="./Week5_Quiz_files/a5q6.JPG" style="width: 570px; height: 489px;" title=""></div>
+        <div class="qt-choices">
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="0" id="dnVeQ9UpoTXS.5.5863745531150336.0" name="dnVeQ9UpoTXS.5.5863745531150336" onclick="clearSelection(this)" type="radio">
+              <label for="dnVeQ9UpoTXS.5.5863745531150336.0">
+                a.
+              </label>
+            </div>
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="1" id="dnVeQ9UpoTXS.5.5863745531150336.1" name="dnVeQ9UpoTXS.5.5863745531150336" onclick="clearSelection(this)" type="radio">
+              <label for="dnVeQ9UpoTXS.5.5863745531150336.1">
+                b.
+              </label>
+            </div>
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="2" id="dnVeQ9UpoTXS.5.5863745531150336.2" name="dnVeQ9UpoTXS.5.5863745531150336" onclick="clearSelection(this)" type="radio">
+              <label for="dnVeQ9UpoTXS.5.5863745531150336.2">
+                c.
+              </label>
+            </div>
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="3" id="dnVeQ9UpoTXS.5.5863745531150336.3" name="dnVeQ9UpoTXS.5.5863745531150336" onclick="clearSelection(this)" type="radio">
+              <label for="dnVeQ9UpoTXS.5.5863745531150336.3">
+                d.
+              </label>
+            </div>
+          
+        </div>
+
+        <!--  -->
+
+        <div class="qt-feedback qt-hidden" role="alert">
+        </div>
+      </div>
+  </div>
+
+       
+          <link href="./Week5_Quiz_files/questions.css" rel="stylesheet" type="text/css">
+<script>
+    questionData['dnVeQ9UpoTXS.6.6137945907003392'] = JSON.parse(window.atob("eyJxdWlkIjogNjEzNzk0NTkwNzAwMzM5MiwgImNob2ljZXMiOiBbXSwgImRlZmF1bHRGZWVkYmFjayI6ICIiLCAicGVybXV0ZUNob2ljZXMiOiBmYWxzZSwgInNob3dBbnN3ZXJXaGVuSW5jb3JyZWN0IjogZmFsc2UsICJhbGxPck5vdGhpbmdHcmFkaW5nIjogZmFsc2UsICJ3ZWlnaHQiOiAxLjB9"));
+
+
+    var assessmentTagMessages = {};
+
+    
+    assessmentTagMessages.correct = "Correct. ";
+    
+    assessmentTagMessages.incorrect = "Incorrect. ";
+    
+    assessmentTagMessages.partiallyCorrect = "Partially Correct. ";
+
+    
+    assessmentTagMessages.correctAnswer = " Yes, the answer is correct. ";
+    
+    assessmentTagMessages.incorrectAnswer = " No, the answer is incorrect. ";
+    
+    assessmentTagMessages.partiallyCorrectAnswer = " The answer is partially correct. ";
+
+    
+    assessmentTagMessages.correctAnswerHeading = "The correct answer is:";
+    
+    assessmentTagMessages.targetedFeedbackHeading = "Targeted Feedback:";
+    
+    assessmentTagMessages.feedbackHeading = "Feedback:";
+
+    
+    assessmentTagMessages.yourScoreIs = " Your score is: ";
+  </script>
+<script src="./Week5_Quiz_files/grading_lib.js"></script>
+<script src="./Week5_Quiz_files/grading.js"></script>
+<noscript>
+    <div class="qt-warning">
+        
+         JavaScript should be enabled to grade this question. 
+    </div>
+</noscript>
+
+
+
+
+<script>
+//Function to allow user to deselect the assignment question
+// @todo Mrunal : When we submit the question once if we revisit that question again we have to double click on option to
+// deselect it ,if it is already selected.This is a minor issue and will be resolved
+function clearSelection(radio) {
+    if (radio.getAttribute("data-checked")) {
+        radio.checked = false;
+        radio.removeAttribute("data-checked");
+    }
+    else
+    {
+        radio.setAttribute("data-checked", "true");
+    }
+}
+</script>
+<style>
+  label {
+    margin-bottom: 0px;
+    font-weight: normal;
+  }
+</style>
+  <div class="gcb-cols gcb-question-counter-increment gcb-question-row">
+      <div class="gcb-col-counters gcb-show-question-counter"></div>
+      <div class="qt-mc-question qt-embedded" id="dnVeQ9UpoTXS.6.6137945907003392">
+        <div class="qt-points">
+          <em>
+            
+              
+              1 point
+            
+          </em>
+        </div>
+
+        <div class="qt-question"><img alt="" class="yui-img" src="./Week5_Quiz_files/a5q7.JPG" style="height: 133px;" title=""></div>
+        <div class="qt-choices">
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="0" id="dnVeQ9UpoTXS.6.6137945907003392.0" name="dnVeQ9UpoTXS.6.6137945907003392" onclick="clearSelection(this)" type="radio">
+              <label for="dnVeQ9UpoTXS.6.6137945907003392.0">
+                a.
+              </label>
+            </div>
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="1" id="dnVeQ9UpoTXS.6.6137945907003392.1" name="dnVeQ9UpoTXS.6.6137945907003392" onclick="clearSelection(this)" type="radio">
+              <label for="dnVeQ9UpoTXS.6.6137945907003392.1">
+                b.
+              </label>
+            </div>
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="2" id="dnVeQ9UpoTXS.6.6137945907003392.2" name="dnVeQ9UpoTXS.6.6137945907003392" onclick="clearSelection(this)" type="radio">
+              <label for="dnVeQ9UpoTXS.6.6137945907003392.2">
+                c.
+              </label>
+            </div>
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="3" id="dnVeQ9UpoTXS.6.6137945907003392.3" name="dnVeQ9UpoTXS.6.6137945907003392" onclick="clearSelection(this)" type="radio">
+              <label for="dnVeQ9UpoTXS.6.6137945907003392.3">
+                d.
+              </label>
+            </div>
+          
+        </div>
+
+        <!--  -->
+
+        <div class="qt-feedback qt-hidden" role="alert">
+        </div>
+      </div>
+  </div>
+
+       
+          <link href="./Week5_Quiz_files/questions.css" rel="stylesheet" type="text/css">
+<script>
+    questionData['dnVeQ9UpoTXS.7.5609428437958656'] = JSON.parse(window.atob("eyJxdWlkIjogNTYwOTQyODQzNzk1ODY1NiwgImNob2ljZXMiOiBbXSwgImRlZmF1bHRGZWVkYmFjayI6ICIiLCAicGVybXV0ZUNob2ljZXMiOiBmYWxzZSwgInNob3dBbnN3ZXJXaGVuSW5jb3JyZWN0IjogZmFsc2UsICJhbGxPck5vdGhpbmdHcmFkaW5nIjogZmFsc2UsICJ3ZWlnaHQiOiAxLjB9"));
+
+
+    var assessmentTagMessages = {};
+
+    
+    assessmentTagMessages.correct = "Correct. ";
+    
+    assessmentTagMessages.incorrect = "Incorrect. ";
+    
+    assessmentTagMessages.partiallyCorrect = "Partially Correct. ";
+
+    
+    assessmentTagMessages.correctAnswer = " Yes, the answer is correct. ";
+    
+    assessmentTagMessages.incorrectAnswer = " No, the answer is incorrect. ";
+    
+    assessmentTagMessages.partiallyCorrectAnswer = " The answer is partially correct. ";
+
+    
+    assessmentTagMessages.correctAnswerHeading = "The correct answer is:";
+    
+    assessmentTagMessages.targetedFeedbackHeading = "Targeted Feedback:";
+    
+    assessmentTagMessages.feedbackHeading = "Feedback:";
+
+    
+    assessmentTagMessages.yourScoreIs = " Your score is: ";
+  </script>
+<script src="./Week5_Quiz_files/grading_lib.js"></script>
+<script src="./Week5_Quiz_files/grading.js"></script>
+<noscript>
+    <div class="qt-warning">
+        
+         JavaScript should be enabled to grade this question. 
+    </div>
+</noscript>
+
+
+
+
+<script>
+//Function to allow user to deselect the assignment question
+// @todo Mrunal : When we submit the question once if we revisit that question again we have to double click on option to
+// deselect it ,if it is already selected.This is a minor issue and will be resolved
+function clearSelection(radio) {
+    if (radio.getAttribute("data-checked")) {
+        radio.checked = false;
+        radio.removeAttribute("data-checked");
+    }
+    else
+    {
+        radio.setAttribute("data-checked", "true");
+    }
+}
+</script>
+<style>
+  label {
+    margin-bottom: 0px;
+    font-weight: normal;
+  }
+</style>
+  <div class="gcb-cols gcb-question-counter-increment gcb-question-row">
+      <div class="gcb-col-counters gcb-show-question-counter"></div>
+      <div class="qt-mc-question qt-embedded" id="dnVeQ9UpoTXS.7.5609428437958656">
+        <div class="qt-points">
+          <em>
+            
+              
+              1 point
+            
+          </em>
+        </div>
+
+        <div class="qt-question"><img alt="" class="yui-img" src="./Week5_Quiz_files/a5q8.JPG" style="width: 727px; height: 220px;" title=""></div>
+        <div class="qt-choices">
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="0" id="dnVeQ9UpoTXS.7.5609428437958656.0" name="dnVeQ9UpoTXS.7.5609428437958656" onclick="clearSelection(this)" type="checkbox">
+              <label for="dnVeQ9UpoTXS.7.5609428437958656.0">
+                a.
+              </label>
+            </div>
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="1" id="dnVeQ9UpoTXS.7.5609428437958656.1" name="dnVeQ9UpoTXS.7.5609428437958656" onclick="clearSelection(this)" type="checkbox">
+              <label for="dnVeQ9UpoTXS.7.5609428437958656.1">
+                b.
+              </label>
+            </div>
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="2" id="dnVeQ9UpoTXS.7.5609428437958656.2" name="dnVeQ9UpoTXS.7.5609428437958656" onclick="clearSelection(this)" type="checkbox">
+              <label for="dnVeQ9UpoTXS.7.5609428437958656.2">
+                c.
+              </label>
+            </div>
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="3" id="dnVeQ9UpoTXS.7.5609428437958656.3" name="dnVeQ9UpoTXS.7.5609428437958656" onclick="clearSelection(this)" type="checkbox">
+              <label for="dnVeQ9UpoTXS.7.5609428437958656.3">
+                d.
+              </label>
+            </div>
+          
+        </div>
+
+        <!--  -->
+
+        <div class="qt-feedback qt-hidden" role="alert">
+        </div>
+      </div>
+  </div>
+
+       
+          <link href="./Week5_Quiz_files/questions.css" rel="stylesheet" type="text/css">
+<script>
+    questionData['dnVeQ9UpoTXS.8.5983831625564160'] = JSON.parse(window.atob("eyJxdWlkIjogNTk4MzgzMTYyNTU2NDE2MCwgImNob2ljZXMiOiBbXSwgImRlZmF1bHRGZWVkYmFjayI6ICIiLCAicGVybXV0ZUNob2ljZXMiOiBmYWxzZSwgInNob3dBbnN3ZXJXaGVuSW5jb3JyZWN0IjogZmFsc2UsICJhbGxPck5vdGhpbmdHcmFkaW5nIjogZmFsc2UsICJ3ZWlnaHQiOiAxLjB9"));
+
+
+    var assessmentTagMessages = {};
+
+    
+    assessmentTagMessages.correct = "Correct. ";
+    
+    assessmentTagMessages.incorrect = "Incorrect. ";
+    
+    assessmentTagMessages.partiallyCorrect = "Partially Correct. ";
+
+    
+    assessmentTagMessages.correctAnswer = " Yes, the answer is correct. ";
+    
+    assessmentTagMessages.incorrectAnswer = " No, the answer is incorrect. ";
+    
+    assessmentTagMessages.partiallyCorrectAnswer = " The answer is partially correct. ";
+
+    
+    assessmentTagMessages.correctAnswerHeading = "The correct answer is:";
+    
+    assessmentTagMessages.targetedFeedbackHeading = "Targeted Feedback:";
+    
+    assessmentTagMessages.feedbackHeading = "Feedback:";
+
+    
+    assessmentTagMessages.yourScoreIs = " Your score is: ";
+  </script>
+<script src="./Week5_Quiz_files/grading_lib.js"></script>
+<script src="./Week5_Quiz_files/grading.js"></script>
+<noscript>
+    <div class="qt-warning">
+        
+         JavaScript should be enabled to grade this question. 
+    </div>
+</noscript>
+
+
+
+
+<script>
+//Function to allow user to deselect the assignment question
+// @todo Mrunal : When we submit the question once if we revisit that question again we have to double click on option to
+// deselect it ,if it is already selected.This is a minor issue and will be resolved
+function clearSelection(radio) {
+    if (radio.getAttribute("data-checked")) {
+        radio.checked = false;
+        radio.removeAttribute("data-checked");
+    }
+    else
+    {
+        radio.setAttribute("data-checked", "true");
+    }
+}
+</script>
+<style>
+  label {
+    margin-bottom: 0px;
+    font-weight: normal;
+  }
+</style>
+  <div class="gcb-cols gcb-question-counter-increment gcb-question-row">
+      <div class="gcb-col-counters gcb-show-question-counter"></div>
+      <div class="qt-mc-question qt-embedded" id="dnVeQ9UpoTXS.8.5983831625564160">
+        <div class="qt-points">
+          <em>
+            
+              
+              1 point
+            
+          </em>
+        </div>
+
+        <div class="qt-question"><img alt="" class="yui-img" src="./Week5_Quiz_files/a5q9.JPG" style="width: 701px; height: 672px;" title=""></div>
+        <div class="qt-choices">
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="0" id="dnVeQ9UpoTXS.8.5983831625564160.0" name="dnVeQ9UpoTXS.8.5983831625564160" onclick="clearSelection(this)" type="radio">
+              <label for="dnVeQ9UpoTXS.8.5983831625564160.0">
+                a.
+              </label>
+            </div>
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="1" id="dnVeQ9UpoTXS.8.5983831625564160.1" name="dnVeQ9UpoTXS.8.5983831625564160" onclick="clearSelection(this)" type="radio">
+              <label for="dnVeQ9UpoTXS.8.5983831625564160.1">
+                b.
+              </label>
+            </div>
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="2" id="dnVeQ9UpoTXS.8.5983831625564160.2" name="dnVeQ9UpoTXS.8.5983831625564160" onclick="clearSelection(this)" type="radio">
+              <label for="dnVeQ9UpoTXS.8.5983831625564160.2">
+                c.
+              </label>
+            </div>
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="3" id="dnVeQ9UpoTXS.8.5983831625564160.3" name="dnVeQ9UpoTXS.8.5983831625564160" onclick="clearSelection(this)" type="radio">
+              <label for="dnVeQ9UpoTXS.8.5983831625564160.3">
+                d.
+              </label>
+            </div>
+          
+        </div>
+
+        <!--  -->
+
+        <div class="qt-feedback qt-hidden" role="alert">
+        </div>
+      </div>
+  </div>
+
+       
+          <link href="./Week5_Quiz_files/questions.css" rel="stylesheet" type="text/css">
+<script>
+    questionData['dnVeQ9UpoTXS.9.4520263671611392'] = JSON.parse(window.atob("eyJxdWlkIjogNDUyMDI2MzY3MTYxMTM5MiwgImNob2ljZXMiOiBbXSwgImRlZmF1bHRGZWVkYmFjayI6ICIiLCAicGVybXV0ZUNob2ljZXMiOiBmYWxzZSwgInNob3dBbnN3ZXJXaGVuSW5jb3JyZWN0IjogZmFsc2UsICJhbGxPck5vdGhpbmdHcmFkaW5nIjogZmFsc2UsICJ3ZWlnaHQiOiAxLjB9"));
+
+
+    var assessmentTagMessages = {};
+
+    
+    assessmentTagMessages.correct = "Correct. ";
+    
+    assessmentTagMessages.incorrect = "Incorrect. ";
+    
+    assessmentTagMessages.partiallyCorrect = "Partially Correct. ";
+
+    
+    assessmentTagMessages.correctAnswer = " Yes, the answer is correct. ";
+    
+    assessmentTagMessages.incorrectAnswer = " No, the answer is incorrect. ";
+    
+    assessmentTagMessages.partiallyCorrectAnswer = " The answer is partially correct. ";
+
+    
+    assessmentTagMessages.correctAnswerHeading = "The correct answer is:";
+    
+    assessmentTagMessages.targetedFeedbackHeading = "Targeted Feedback:";
+    
+    assessmentTagMessages.feedbackHeading = "Feedback:";
+
+    
+    assessmentTagMessages.yourScoreIs = " Your score is: ";
+  </script>
+<script src="./Week5_Quiz_files/grading_lib.js"></script>
+<script src="./Week5_Quiz_files/grading.js"></script>
+<noscript>
+    <div class="qt-warning">
+        
+         JavaScript should be enabled to grade this question. 
+    </div>
+</noscript>
+
+
+
+
+<script>
+//Function to allow user to deselect the assignment question
+// @todo Mrunal : When we submit the question once if we revisit that question again we have to double click on option to
+// deselect it ,if it is already selected.This is a minor issue and will be resolved
+function clearSelection(radio) {
+    if (radio.getAttribute("data-checked")) {
+        radio.checked = false;
+        radio.removeAttribute("data-checked");
+    }
+    else
+    {
+        radio.setAttribute("data-checked", "true");
+    }
+}
+</script>
+<style>
+  label {
+    margin-bottom: 0px;
+    font-weight: normal;
+  }
+</style>
+  <div class="gcb-cols gcb-question-counter-increment gcb-question-row">
+      <div class="gcb-col-counters gcb-show-question-counter"></div>
+      <div class="qt-mc-question qt-embedded" id="dnVeQ9UpoTXS.9.4520263671611392">
+        <div class="qt-points">
+          <em>
+            
+              
+              1 point
+            
+          </em>
+        </div>
+
+        <div class="qt-question"><img alt="" class="yui-img" src="./Week5_Quiz_files/a5q10.JPG" style="width: 728px; height: 144px;" title=""></div>
+        <div class="qt-choices">
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="0" id="dnVeQ9UpoTXS.9.4520263671611392.0" name="dnVeQ9UpoTXS.9.4520263671611392" onclick="clearSelection(this)" type="checkbox">
+              <label for="dnVeQ9UpoTXS.9.4520263671611392.0">
+                a.
+              </label>
+            </div>
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="1" id="dnVeQ9UpoTXS.9.4520263671611392.1" name="dnVeQ9UpoTXS.9.4520263671611392" onclick="clearSelection(this)" type="checkbox">
+              <label for="dnVeQ9UpoTXS.9.4520263671611392.1">
+                b.
+              </label>
+            </div>
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="2" id="dnVeQ9UpoTXS.9.4520263671611392.2" name="dnVeQ9UpoTXS.9.4520263671611392" onclick="clearSelection(this)" type="checkbox">
+              <label for="dnVeQ9UpoTXS.9.4520263671611392.2">
+                c.
+              </label>
+            </div>
+          
+            <div class="gcb-mcq-choice">
+              <input data-index="3" id="dnVeQ9UpoTXS.9.4520263671611392.3" name="dnVeQ9UpoTXS.9.4520263671611392" onclick="clearSelection(this)" type="checkbox">
+              <label for="dnVeQ9UpoTXS.9.4520263671611392.3">
+                d.
+              </label>
+            </div>
+          
+        </div>
+
+        <!--  -->
+
+        <div class="qt-feedback qt-hidden" role="alert">
+        </div>
+      </div>
+  </div>
+
+       
+    <!--&lt;div class=&quot;qt-check-answer&quot;&gt;-->
+      <!--&lt;button class=&quot;gcb-button qt-check-answer-button&quot;&gt;-->
+        <!---->
+        <!-- Check Answer -->
+      <!--&lt;/button&gt;-->
+    <!--&lt;/div&gt;-->
+   <div class="qt-feedback qt-hidden" role="alert"></div>
+  </div>
+</div>
+  </div>
+  <div class="qt-assessment-button-bar">
+  
+    <div class="gcb-submit-only-once">
+    
+      
+        You may submit any number of times before the due date. The final submission will be considered for grading.
+      
+    
+    </div>
+
+    
+    
+      
+      <div class="qt-grade-report qt-hidden" data-question-batch-id="A159"></div>
+      
+      <div class="qt-grade-assessment" style="">
+        <button class="gcb-button qt-check-answer-button" id="submitbutton">
+           Submit Answers 
+        </button>
+      </div>
+      
+    
+  
+  </div>
+</div>
+
+    
+  
+</div>
+            </div>
+           
+         
+       
+      
+      <!-- Commenting out the button code for whitelisting assignments. Might need in future
+      <!-- <div id="gcb-nav-button-box" class="gcb-button-box">
+        
+        <div class="gcb-prev-button">
+          
+            
+            <a href="unit?unit=45&amp;lesson=51"> Previous Page </a>
+          
+        </div>
+        <div class="gcb-next-button">
+          
+            
+            <a href="course"> End </a>
+          
+        </div>
+        
+      </div> -->
+    
+    
+    <div class="gcb-html-hook" id="unit-before-content-ends"></div>
+  </div>
+</div>
+
+
+        <div class="gcb-html-hook" id="base-after-main-content-ends"><!-- base.after_main_content_ends --></div>
+      </div>
+    </div>
+    <div class="clear"></div>
+  </div>
+    <!-- footer section -->
+  <!--<div class="gcb-footer" id="gcb-footer">
+        <div class="gcb-aux">
+        <style>
+  .gcb-terms-block2 {
+          margin: auto;
+    max-width: 500px;
+          text-align: center;
+  }
+        </style>
+        <div id="gcb-terms"  class="gcb-terms-block2">
+          <p>&copy; 2014 NPTEL -
+            <a onclick='showPopupDiv("termsDiv"); return false;'>
+              
+              Privacy & Terms
+            </a> -
+            <a onclick='showPopupDiv("honorDiv"); return false;'>
+              
+              Honor Code
+            </a> -
+            <a onclick='showPopupDiv("faqDiv"); return false;'>
+              
+              FAQs
+            </a>
+            
+              <script type="text/javascript">
+              (function() {
+               var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+               po.src = 'https://apis.google.com/js/plusone.js?onload=onLoadCallback';
+               var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+               })();
+              </script>
+               - <span class="plusone-button" id="plusone-3" style="height: 20px; width: 70px; display: inline-block; text-indent: 0px; margin: 0px; padding: 0px; background-color: transparent; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: top; background-position: initial initial; background-repeat: initial initial; ">
+                <g:plusone size="medium"></g:plusone>
+              </span>
+            
+          </p>
+        </div>
+        </div>
+      <div id="gcb-footer-global" role="contentinfo">
+        <div class="gcb-aux">
+          <div class="footer-logo-block">
+            <section>
+              <h3>A project of</h3>
+                  <a href="http://nptel.iitm.ac.in" target="_blank">
+                  <img src="https://storage.googleapis.com/swayam2-node/modules/nptel/assets/img/footer-logo-nptel.png"/>
+                  </a>
+            </section>
+          </div>
+          <div class="footer-logo-block">
+            <section>
+              <h3>In association with</h3>
+                  <a href="http://www.nasscom.in" target="_blank">
+                  <img src="https://storage.googleapis.com/swayam2-node/modules/nptel/assets/img/footer-logo-nasscom.png"/>
+                  </a>
+            </section>
+          </div>
+          <div class="footer-logo-block">
+            <section>
+              <h3>Funded by</h3>
+                  <a href="http://mhrd.gov.in" target="_blank">
+                  <img src="https://storage.googleapis.com/swayam2-node/modules/nptel/assets/img/footer-mhrd.png"/>
+                  </a>
+            </section>
+          </div>
+          <div class="footer-logo-block">
+            <section>
+              <h3>Powered by</h3>
+                  <a href="http://www.google.com" target="_blank">
+                  <img src="https://storage.googleapis.com/swayam2-node/modules/nptel/assets/img/footer-logo-google.png"/>
+                  </a>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>-->
+    
+    
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-46447969-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+    
+    <!---->
+  
+<script src="./Week5_Quiz_files/prettify.js" type="text/javascript" id="https://storage.googleapis.com/swayam2-node/assets/lib/google-code-prettify/prettify.js"></script><script src="./Week5_Quiz_files/activity-generic-1.3.js" type="text/javascript" id="https://storage.googleapis.com/swayam2-node/modules/nptel/assets/js/activity-generic-1.3.js"></script><script src="./Week5_Quiz_files/main.js" type="text/javascript" id="https://storage.googleapis.com/swayam2-node/modules/nptel/assets/js/main.js"></script></body></html>
